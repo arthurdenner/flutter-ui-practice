@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/topbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,11 +8,32 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Topbar(),
+            SizedBox(height: 20),
+            _buildHeader(context),
+            SizedBox(height: 20),
+            Filters(),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width / 12,
+      ),
+      child: Text(
+        'Perfume',
+        style: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
