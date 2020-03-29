@@ -52,7 +52,6 @@ class ProductItem extends StatelessWidget {
                 Container(
                   width: 200,
                   decoration: BoxDecoration(
-                    // color: Colors.green,
                     borderRadius: BorderRadius.circular(28),
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
@@ -94,6 +93,26 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20),
+        ProductDescription(product: product),
+      ],
+    );
+  }
+}
+
+class ProductDescription extends StatelessWidget {
+  const ProductDescription({
+    Key key,
+    @required this.product,
+  })  : assert(product != null),
+        super(key: key);
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
         Text(
           product.description,
           style: TextStyle(

@@ -13,7 +13,10 @@ class Topbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Icon(Icons.menu),
+          Icon(
+            Icons.short_text,
+            size: 40,
+          ),
           _buildShoppingIcon(),
         ],
       ),
@@ -25,7 +28,10 @@ class Topbar extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8),
-          child: Icon(Icons.shopping_basket),
+          child: Icon(
+            Icons.shopping_basket,
+            size: 30,
+          ),
         ),
         Positioned(
           top: 0,

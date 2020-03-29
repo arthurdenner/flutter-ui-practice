@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/best_deals.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/screens/home/best_deals_product.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/category.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/products.dart';
@@ -23,8 +24,10 @@ class HomePage extends StatelessWidget {
             Filters(),
             SizedBox(height: 20),
             _buildProducts(context),
-            SizedBox(height: 20),
+            Expanded(child: Container()),
             BestDeals(),
+            SizedBox(height: 20),
+            BestDealsProduct(),
           ],
         ),
       ),
@@ -35,7 +38,7 @@ class HomePage extends StatelessWidget {
     final padding = MediaQuery.of(context).size.width / 12;
 
     return Container(
-      height: 400,
+      height: 380,
       padding: EdgeInsets.only(left: padding),
       child: ListView(
         scrollDirection: Axis.horizontal,

@@ -33,10 +33,13 @@ class FilterIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(8),
-      child: Icon(
-        Icons.filter_list,
-        size: 32,
-        color: Colors.white,
+      child: RotatedBox(
+        quarterTurns: 3,
+        child: Icon(
+          Icons.tune,
+          size: 32,
+          color: Colors.white,
+        ),
       ),
     );
   }
