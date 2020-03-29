@@ -57,7 +57,7 @@ flutter:
     #       style: italic
     - family: Trueno
       fonts:
-        - asset: assets/fonts/truenolt.otf
+        - asset: assets/fonts/truenorg.otf
         - asset: assets/fonts/truenobd.otf
           weight: 700
   #
