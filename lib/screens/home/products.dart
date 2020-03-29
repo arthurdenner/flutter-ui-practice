@@ -45,50 +45,52 @@ class ProductItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Expanded(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                width: 200,
-                margin: EdgeInsets.only(right: 20),
-                decoration: BoxDecoration(
-                  // color: Colors.green,
-                  borderRadius: BorderRadius.circular(28),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.lightGreen, Colors.green],
+          child: Container(
+            margin: EdgeInsets.only(right: 24),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  decoration: BoxDecoration(
+                    // color: Colors.green,
+                    borderRadius: BorderRadius.circular(28),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.lightGreen, Colors.green],
+                    ),
+                  ),
+                  child: Center(
+                    child: Image.asset(product.image),
                   ),
                 ),
-                child: Center(
-                  child: Image.asset(product.image),
-                ),
-              ),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: Container(
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      topRight: Radius.circular(25),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: Container(
-                    width: 70,
-                    height: 70,
-                    child: Center(
-                      child: Icon(Icons.favorite, size: 32),
-                    )),
-              ),
-            ],
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                      width: 70,
+                      height: 70,
+                      child: Center(
+                        child: Icon(Icons.favorite, size: 32),
+                      )),
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(height: 20),
