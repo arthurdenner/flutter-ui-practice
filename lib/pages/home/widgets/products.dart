@@ -8,12 +8,12 @@ class Products extends StatelessWidget {
     Product(
       image: 'assets/images/coco-noir.png',
       description: 'Chanel Coco Noir',
-      price: '99.50',
+      price: '€ 99.50',
     ),
     Product(
-      image: 'assets/images/coco-noir.png',
-      description: 'Chanel Coco Noir',
-      price: '99.50',
+      image: 'assets/images/orange-sanguine.png',
+      description: 'Orange Sanguine',
+      price: '€ 121.00',
     ),
   ];
 
@@ -127,7 +127,7 @@ class ProductDescription extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(
-          '€ ${product.price}',
+          product.price,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
