@@ -5,14 +5,15 @@ class AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(32),
-      ),
-      child: SizedBox(
-        width: double.infinity,
+    return Positioned(
+      bottom: 0,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
         height: 80,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(32),
+        ),
         child: FlatButton(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

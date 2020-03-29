@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/add_to_cart.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/info.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/topbar.dart';
 
 class ProductPage extends StatelessWidget {
@@ -53,6 +54,7 @@ class ProductPage extends StatelessWidget {
   Widget _buildInfo() {
     return Stack(
       children: <Widget>[
+        ProductInfo(product: product),
         AddToCart(),
       ],
     );
