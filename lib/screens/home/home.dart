@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/category.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/screens/home/products.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/topbar.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,9 +16,9 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Topbar(),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             _buildHeader(context),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             Filters(),
             SizedBox(height: 20),
             _buildProducts(context)
@@ -31,12 +32,13 @@ class HomePage extends StatelessWidget {
     final padding = MediaQuery.of(context).size.width / 12;
 
     return Container(
-      height: 500,
+      height: 400,
       padding: EdgeInsets.only(left: padding),
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           ProductCategories(),
+          Products(),
         ],
       ),
     );

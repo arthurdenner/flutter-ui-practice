@@ -27,7 +27,11 @@ class Topbar extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: Icon(Icons.shopping_basket),
         ),
-        Dot(),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: Dot(),
+        ),
       ],
     );
   }

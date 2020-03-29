@@ -9,6 +9,7 @@ class ProductCategories extends StatelessWidget {
     return RotatedBox(
       quarterTurns: 3,
       child: Container(
+        margin: EdgeInsets.only(bottom: 30),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,

@@ -10,17 +10,13 @@ class Dot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 0,
-      right: 0,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.green,
-          borderRadius: BorderRadius.circular(size),
-        ),
-        width: size,
-        height: size,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: BorderRadius.circular(size),
       ),
+      width: size,
+      height: size,
     );
   }
 }
