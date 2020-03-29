@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/widgets/dot.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/dot.dart';
 
 class ProductCategories extends StatelessWidget {
   const ProductCategories({Key key}) : super(key: key);

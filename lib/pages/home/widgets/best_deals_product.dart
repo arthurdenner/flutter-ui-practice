@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/products.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/products.dart';
 
 class BestDealsProduct extends StatelessWidget {
   const BestDealsProduct({Key key}) : super(key: key);

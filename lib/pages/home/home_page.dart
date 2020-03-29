@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/best_deals.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/best_deals_product.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/category.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/products.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/topbar.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals_product.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/category.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/filter.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/products.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/topbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);

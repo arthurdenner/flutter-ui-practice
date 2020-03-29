@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/screens/home/home.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/home_page.dart';
 
 void main() => runApp(MyApp());
 
