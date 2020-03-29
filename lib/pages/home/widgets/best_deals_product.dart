@@ -44,6 +44,7 @@ class BestDealsProduct extends StatelessWidget {
                 ),
                 ProductDescription(
                   product: Product(
+                    brand: 'Chanel',
                     image: 'assets/images/coco-noir.png',
                     description: 'Chanel Coco Noir',
                     price: '€ 99.50',

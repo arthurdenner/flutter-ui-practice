@@ -32,7 +32,7 @@ class ProductInfo extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Huda Beauty'.toUpperCase(),
+            product.brand.toUpperCase(),
             style: TextStyle(
               color: Colors.black26,
               fontWeight: FontWeight.bold,

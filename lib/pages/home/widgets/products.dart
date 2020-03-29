@@ -7,14 +7,16 @@ class Products extends StatelessWidget {
 
   static final _products = [
     Product(
+      brand: 'Chanel',
       image: 'assets/images/coco-noir.png',
       description: 'Chanel Coco Noir',
       price: '€ 99.50',
     ),
     Product(
+      brand: 'Huda Beauty',
       image: 'assets/images/coco-noir.png',
-      description: 'Orange Sanguine',
-      price: '€ 121.00',
+      description: 'Kayali Elixir 11',
+      price: '€ 118.00',
     ),
   ];
 
