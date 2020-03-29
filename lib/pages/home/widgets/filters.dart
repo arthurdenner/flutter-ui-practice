@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const double size = 56;
+
 class Filters extends StatelessWidget {
   const Filters({Key key}) : super(key: key);
 
@@ -8,26 +10,23 @@ class Filters extends StatelessWidget {
     final padding = MediaQuery.of(context).size.width / 12;
 
     return Container(
-      height: 50,
-      padding: EdgeInsets.only(left: padding),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
+      height: size,
+      padding: EdgeInsets.only(left: padding, right: padding / 3),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          FilterIcon(),
-          FilterLabel(text: 'Floral'),
-          FilterLabel(text: 'Warm & Spicy'),
+          _buildIcon(),
+          _buildLabel('Floral'),
+          _buildLabel('Warm & Spicy'),
         ],
       ),
     );
   }
-}
 
-class FilterIcon extends StatelessWidget {
-  const FilterIcon({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildIcon() {
     return Container(
+      height: size,
+      width: size,
       decoration: BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.circular(16),
@@ -43,23 +42,10 @@ class FilterIcon extends StatelessWidget {
       ),
     );
   }
-}
 
-class FilterLabel extends StatelessWidget {
-  const FilterLabel({
-    Key key,
-    @required this.text,
-  })  : assert(text != null),
-        super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildLabel(String text) {
     return Container(
-      margin: EdgeInsets.only(left: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: Colors.black12,
