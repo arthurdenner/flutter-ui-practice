@@ -113,7 +113,9 @@ class ProductItem extends StatelessWidget {
   void _goToProductPage(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => ProductPage(),
+        builder: (_) => ProductPage(
+          product: product,
+        ),
       ),
     );
   }

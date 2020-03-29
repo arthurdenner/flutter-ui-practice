@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/add_to_cart.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/topbar.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({Key key, this.product}) : super(key: key);
+  const ProductPage({
+    Key key,
+    @required this.product,
+  })  : assert(product != null),
+        super(key: key);
 
   final Product product;
 
@@ -23,10 +28,33 @@ class ProductPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ProductTopbar(),
+              _buildImage(),
+              _buildInfo(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildImage() {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 72),
+        child: Center(
+          child: Image.asset(
+            product.image,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfo() {
+    return Stack(
+      children: <Widget>[
+        AddToCart(),
+      ],
     );
   }
 }
