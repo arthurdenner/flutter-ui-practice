@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/product/product_page.dart';
 
 class Products extends StatelessWidget {
   const Products({Key key}) : super(key: key);
@@ -47,59 +48,70 @@ class ProductItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Expanded(
-          child: Container(
-            margin: EdgeInsets.only(right: 24),
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(28),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.lightGreen, Colors.green],
+          child: GestureDetector(
+            onTap: () => _goToProductPage(context),
+            child: Container(
+              margin: EdgeInsets.only(right: 24),
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(28),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Colors.lightGreen, Colors.green],
+                      ),
+                    ),
+                    child: Center(
+                      child: Image.asset(product.image),
                     ),
                   ),
-                  child: Center(
-                    child: Image.asset(product.image),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    width: size,
-                    height: size,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(25),
-                        topRight: Radius.circular(25),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      width: size,
+                      height: size,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                      width: size,
-                      height: size,
-                      child: Center(
-                        child: Icon(
-                          Icons.favorite,
-                          size: 32,
-                        ),
-                      )),
-                ),
-              ],
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                        width: size,
+                        height: size,
+                        child: Center(
+                          child: Icon(
+                            Icons.favorite,
+                            size: 32,
+                          ),
+                        )),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
         SizedBox(height: 20),
         ProductDescription(product: product),
       ],
+    );
+  }
+
+  void _goToProductPage(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => ProductPage(),
+      ),
     );
   }
 }
