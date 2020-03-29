@@ -14,7 +14,7 @@ class BestDealsProduct extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(padding / 3),
+            padding: EdgeInsets.all(padding / 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
@@ -63,7 +63,7 @@ class BestDealsProduct extends StatelessWidget {
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              height: 50,
+              height: 44,
               child: Center(
                 child: Text(
                   '- 20%',

@@ -41,6 +41,8 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double size = 60;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -67,8 +69,8 @@ class ProductItem extends StatelessWidget {
                   top: 0,
                   right: 0,
                   child: Container(
-                    width: 70,
-                    height: 70,
+                    width: size,
+                    height: size,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -82,10 +84,13 @@ class ProductItem extends StatelessWidget {
                   top: 0,
                   right: 0,
                   child: Container(
-                      width: 70,
-                      height: 70,
+                      width: size,
+                      height: size,
                       child: Center(
-                        child: Icon(Icons.favorite, size: 32),
+                        child: Icon(
+                          Icons.favorite,
+                          size: 32,
+                        ),
                       )),
                 ),
               ],
@@ -116,7 +121,7 @@ class ProductDescription extends StatelessWidget {
         Text(
           product.description,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -124,7 +129,7 @@ class ProductDescription extends StatelessWidget {
         Text(
           '€ ${product.price}',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
             color: Colors.green,
           ),
