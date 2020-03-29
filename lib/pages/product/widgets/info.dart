@@ -26,7 +26,7 @@ class ProductInfo extends StatelessWidget {
           Text(
             product.description,
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),

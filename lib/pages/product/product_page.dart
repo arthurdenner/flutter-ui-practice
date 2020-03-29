@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/add_to_cart.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/indicators.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/info.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/topbar.dart';
 
@@ -41,11 +42,18 @@ class ProductPage extends StatelessWidget {
   Widget _buildImage() {
     return Expanded(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 72),
-        child: Center(
-          child: Image.asset(
-            product.image,
-          ),
+        padding: EdgeInsets.symmetric(
+          horizontal: 72,
+          vertical: 20,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Image.asset(
+              product.image,
+            ),
+            DotsIndicator(),
+          ],
         ),
       ),
     );
