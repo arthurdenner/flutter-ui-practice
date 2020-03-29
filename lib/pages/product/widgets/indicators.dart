@@ -16,8 +16,8 @@ class DotsIndicator extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(32),
             ),
-            width: 25,
-            height: 8,
+            width: 20,
+            height: 6,
           ),
         ),
         Padding(

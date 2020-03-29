@@ -9,7 +9,7 @@ class ProductCategories extends StatelessWidget {
     return RotatedBox(
       quarterTurns: 3,
       child: Container(
-        margin: EdgeInsets.only(bottom: 30),
+        margin: EdgeInsets.only(bottom: 40),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -42,19 +42,19 @@ class _Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: <Widget>[
           Text(
             text.toUpperCase(),
             style: TextStyle(
-              color: active ? Colors.green : Colors.black26,
+              color: active ? Color(0xFF59a463) : Colors.black26,
               fontWeight: FontWeight.bold,
             ),
           ),
           if (active)
             Padding(
-              padding: const EdgeInsets.only(top: 6),
+              padding: EdgeInsets.only(top: 6),
               child: Dot(),
             ),
         ],

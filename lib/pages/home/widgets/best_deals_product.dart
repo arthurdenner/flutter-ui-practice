@@ -14,9 +14,9 @@ class BestDealsProduct extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(padding / 4),
+            padding: EdgeInsets.all(padding / 3),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 color: Colors.black12,
               ),
@@ -30,11 +30,11 @@ class BestDealsProduct extends StatelessWidget {
                     horizontal: padding / 2,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(12),
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [Colors.lightGreen, Colors.green],
+                      colors: [Color(0xFF8bb957), Color(0xFF59a463)],
                     ),
                   ),
                   child: Image.asset(
@@ -46,7 +46,7 @@ class BestDealsProduct extends StatelessWidget {
                   product: Product(
                     image: 'assets/images/coco-noir.png',
                     description: 'Chanel Coco Noir',
-                    price: '99.50',
+                    price: '€ 99.50',
                   ),
                 ),
               ],
@@ -58,6 +58,7 @@ class BestDealsProduct extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: 12,
+                vertical: 14,
               ),
               decoration: BoxDecoration(
                 color: Color(0xffffb67d),
@@ -66,7 +67,6 @@ class BestDealsProduct extends StatelessWidget {
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              height: 44,
               child: Center(
                 child: Text(
                   '- 20%',

@@ -61,7 +61,7 @@ class ProductItem extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
-                        colors: [Colors.lightGreen, Colors.green],
+                        colors: [Color(0xFF8bb957), Color(0xFF59a463)],
                       ),
                     ),
                     child: Center(
@@ -148,7 +148,7 @@ class ProductDescription extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.green,
+            color: Color(0xFF59a463),
           ),
         ),
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals_product.dart';
-import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/category.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/categories.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/filters.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/products.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/topbar.dart';
@@ -17,15 +17,15 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Topbar(),
-            SizedBox(height: 25),
-            _buildHeader(context),
-            SizedBox(height: 25),
-            Filters(),
             SizedBox(height: 20),
+            _buildHeader(context),
+            SizedBox(height: 30),
+            Filters(),
+            SizedBox(height: 30),
             _buildProducts(context),
             Expanded(child: Container()),
             BestDeals(),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             BestDealsProduct(),
           ],
         ),
@@ -50,10 +50,10 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
+    final padding = MediaQuery.of(context).size.width / 12;
+
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width / 12,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: padding),
       child: Text(
         'Perfume',
         style: TextStyle(

@@ -6,10 +6,10 @@ class Topbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final padding = MediaQuery.of(context).size.width / 12;
+
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width / 12,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: padding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -27,7 +27,7 @@ class Topbar extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.symmetric(horizontal: 8),
           child: Icon(
             Icons.shopping_basket,
             size: 30,

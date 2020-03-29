@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Trueno',
-        primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white,
       ),
       home: HomePage(),

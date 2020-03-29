@@ -28,7 +28,7 @@ class Filters extends StatelessWidget {
       height: size,
       width: size,
       decoration: BoxDecoration(
-        color: Colors.green,
+        color: Color(0xFF59a463),
         borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(8),
@@ -59,8 +59,7 @@ class Filters extends StatelessWidget {
         child: Text(
           text.toUpperCase(),
           style: TextStyle(
-            color: Colors.green,
-            fontSize: 14,
+            color: Color(0xFF59a463),
             fontWeight: FontWeight.bold,
           ),
         ),
