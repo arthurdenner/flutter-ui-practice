@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/screens/home/category.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/topbar.dart';
 
@@ -18,8 +19,25 @@ class HomePage extends StatelessWidget {
             _buildHeader(context),
             SizedBox(height: 20),
             Filters(),
+            SizedBox(height: 20),
+            _buildProducts(context)
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildProducts(BuildContext context) {
+    final padding = MediaQuery.of(context).size.width / 12;
+
+    return Container(
+      height: 500,
+      padding: EdgeInsets.only(left: padding),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          ProductCategories(),
+        ],
       ),
     );
   }
