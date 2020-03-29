@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterando_perfume_ecommerce_challenge/screens/home/best_deals.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/category.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/filter.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/screens/home/products.dart';
@@ -21,7 +22,9 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 25),
             Filters(),
             SizedBox(height: 20),
-            _buildProducts(context)
+            _buildProducts(context),
+            SizedBox(height: 20),
+            BestDeals(),
           ],
         ),
       ),
