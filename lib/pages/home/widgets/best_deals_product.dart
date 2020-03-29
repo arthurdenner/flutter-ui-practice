@@ -25,7 +25,10 @@ class BestDealsProduct extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(right: padding / 2),
-                  padding: EdgeInsets.all(padding / 4),
+                  padding: EdgeInsets.symmetric(
+                    vertical: padding / 4,
+                    horizontal: padding / 2,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     gradient: LinearGradient(

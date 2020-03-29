@@ -12,7 +12,7 @@ class Products extends StatelessWidget {
       price: '€ 99.50',
     ),
     Product(
-      image: 'assets/images/orange-sanguine.png',
+      image: 'assets/images/coco-noir.png',
       description: 'Orange Sanguine',
       price: '€ 121.00',
     ),
@@ -65,7 +65,10 @@ class ProductItem extends StatelessWidget {
                       ),
                     ),
                     child: Center(
-                      child: Image.asset(product.image),
+                      child: Image.asset(
+                        product.image,
+                        width: 120,
+                      ),
                     ),
                   ),
                   Positioned(
