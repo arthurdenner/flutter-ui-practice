@@ -6,9 +6,7 @@ class ProductTopbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width / 12,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

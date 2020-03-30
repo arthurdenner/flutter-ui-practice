@@ -5,10 +5,8 @@ class BestDeals extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: <Widget>[
           Row(

@@ -11,11 +11,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: <Widget>[
+            SizedBox(height: statusBarHeight),
             Topbar(),
             SizedBox(height: 20),
             _buildHeader(context),
@@ -23,9 +25,9 @@ class HomePage extends StatelessWidget {
             Filters(),
             SizedBox(height: 30),
             _buildProducts(context),
-            Expanded(child: Container()),
+            SizedBox(height: 50),
             BestDeals(),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             BestDealsProduct(),
           ],
         ),
@@ -34,11 +36,9 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildProducts(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Container(
       height: 380,
-      padding: EdgeInsets.only(left: padding),
+      padding: EdgeInsets.only(left: 30),
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
@@ -50,10 +50,8 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Text(
         'Perfume',
         style: TextStyle(

@@ -7,11 +7,9 @@ class Filters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Container(
       height: size,
-      padding: EdgeInsets.only(left: padding, right: padding / 3),
+      padding: EdgeInsets.only(left: 30, right: 30 / 3),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

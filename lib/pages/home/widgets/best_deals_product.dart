@@ -7,14 +7,12 @@ class BestDealsProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(padding / 3),
+            padding: EdgeInsets.all(30 / 3),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
@@ -24,10 +22,10 @@ class BestDealsProduct extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(right: padding / 2),
+                  margin: EdgeInsets.only(right: 30 / 2),
                   padding: EdgeInsets.symmetric(
-                    vertical: padding / 4,
-                    horizontal: padding / 2,
+                    vertical: 30 / 4,
+                    horizontal: 30 / 2,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),

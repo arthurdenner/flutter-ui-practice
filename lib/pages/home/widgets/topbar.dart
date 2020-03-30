@@ -6,10 +6,8 @@ class Topbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

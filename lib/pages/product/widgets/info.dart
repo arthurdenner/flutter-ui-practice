@@ -12,10 +12,8 @@ class ProductInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).size.width / 12;
-
     return Container(
-      padding: EdgeInsets.fromLTRB(padding, padding, padding, padding + 80),
+      padding: EdgeInsets.fromLTRB(30, 30, 30, 110),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(32),
