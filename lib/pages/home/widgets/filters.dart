@@ -10,8 +10,8 @@ class Filters extends StatelessWidget {
     return Container(
       height: size,
       padding: EdgeInsets.only(left: 30, right: 30 / 3),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
         children: <Widget>[
           _buildIcon(),
           _buildLabel('Floral'),
@@ -49,8 +49,9 @@ class Filters extends StatelessWidget {
           color: Colors.black12,
         ),
       ),
+      margin: EdgeInsets.only(left: 15),
       padding: const EdgeInsets.symmetric(
-        horizontal: 30,
+        horizontal: 28,
         vertical: 16,
       ),
       child: Center(

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/models/product.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/product/widgets/add_to_cart.dart';
@@ -16,6 +17,8 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -26,9 +29,10 @@ class ProductPage extends StatelessWidget {
           ),
         ),
         child: SafeArea(
+          bottom: false,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              if (Platform.isAndroid) SizedBox(height: statusBarHeight),
               ProductTopbar(),
               _buildImage(),
               _buildInfo(),
@@ -44,16 +48,18 @@ class ProductPage extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: 72,
-          vertical: 20,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Image.asset(
-              product.image,
-            ),
-            DotsIndicator(),
-          ],
+        child: FittedBox(
+          fit: BoxFit.fitHeight,
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                product.image,
+              ),
+              DotsIndicator(),
+              SizedBox(height: 50),
+            ],
+          ),
         ),
       ),
     );

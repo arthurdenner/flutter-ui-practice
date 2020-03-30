@@ -12,7 +12,10 @@ class AddToCart extends StatelessWidget {
         height: 80,
         decoration: BoxDecoration(
           color: Colors.black,
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+          ),
         ),
         child: FlatButton(
           child: Row(

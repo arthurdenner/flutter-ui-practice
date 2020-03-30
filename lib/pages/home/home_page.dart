@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals.dart';
 import 'package:flutterando_perfume_ecommerce_challenge/pages/home/widgets/best_deals_product.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            SizedBox(height: statusBarHeight),
+            if (Platform.isAndroid) SizedBox(height: statusBarHeight),
             Topbar(),
             SizedBox(height: 20),
             _buildHeader(context),
