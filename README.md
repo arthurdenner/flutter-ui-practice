@@ -1,10 +1,24 @@
 # flutterando_perfume_ecommerce_challenge
 
-A new Flutter project.
+Challenge from [Flutterando](https://github.com/Flutterando).
+
+## Mockup
+
+[Link on Dribble](https://dribbble.com/shots/8226522-Perfume-e-commerce-Mobile-App/attachments/596233?mode=media).
+
+## Screenshots
+
+### Android
+
+- [Home Page](./screenshots/android_1.png)
+- [Product Page](./screenshots/android_2.png)
+
+### iOS
+
+- [Home Page](./screenshots/ios_1.png)
+- [Product Page](./screenshots/ios_2.png)
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
