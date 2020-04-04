@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/constants.dart';
 
 const double SIDEBAR_SIZE = 0.3;
 const double AVATAR_SIZE = 30;
 const AVATAR =
     'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +30,56 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  Container(
-                    color: Colors.grey,
-                    width: sidebarSize,
-                  ),
+                  _buildSidebar(sidebarSize),
                   _buildDetails(width - sidebarSize),
                 ],
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSidebar(double width) {
+    return Container(
+      width: width,
+      padding: EdgeInsets.symmetric(vertical: 50),
+      child: ListView.builder(
+        itemCount: dates.length,
+        itemBuilder: _buildSidebarTile,
+      ),
+    );
+  }
+
+  Widget _buildSidebarTile(BuildContext context, int index) {
+    final date = dates[index];
+    final isActive = index == _activeIndex;
+    final bgColor = isActive ? Colors.purple : Colors.white;
+    final titleColor = isActive ? Colors.white : Colors.black;
+    final subtitleColor = isActive ? Colors.white : Colors.black26;
+
+    return Container(
+      color: bgColor,
+      child: ListTile(
+        onTap: () => _setActiveIndex(index),
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 80,
+        ),
+        title: Text(
+          date.dateOfYear,
+          style: TextStyle(
+            color: titleColor,
+            fontSize: 24,
+          ),
+        ),
+        subtitle: Text(
+          date.dayOfWeek.toUpperCase(),
+          style: TextStyle(
+            color: subtitleColor,
+            fontSize: 18,
+          ),
         ),
       ),
     );
@@ -107,5 +156,9 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _setActiveIndex(int idx) {
+    setState(() => _activeIndex = idx);
   }
 }
