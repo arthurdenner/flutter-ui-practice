@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_calendar_app/src/utils/constants.dart';
 
 const double SIDEBAR_SIZE = 0.3;
 const double AVATAR_SIZE = 30;
-const AVATAR =
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -26,7 +23,6 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: <Widget>[
             _buildHeader(context),
-            SizedBox(height: 50),
             Expanded(
               child: Row(
                 children: <Widget>[
@@ -44,23 +40,29 @@ class _HomePageState extends State<HomePage> {
   Widget _buildSidebar(double width) {
     return Container(
       width: width,
-      padding: EdgeInsets.symmetric(vertical: 50),
+      color: Colors.purple,
       child: ListView.builder(
-        itemCount: dates.length,
+        itemCount: 30,
         itemBuilder: _buildSidebarTile,
       ),
     );
   }
 
   Widget _buildSidebarTile(BuildContext context, int index) {
-    final date = dates[index];
     final isActive = index == _activeIndex;
     final bgColor = isActive ? Colors.purple : Colors.white;
     final titleColor = isActive ? Colors.white : Colors.black;
     final subtitleColor = isActive ? Colors.white : Colors.black26;
 
-    return Container(
-      color: bgColor,
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 100),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(_activeIndex - 1 == index ? 50 : 0),
+          topRight: Radius.circular(_activeIndex + 1 == index ? 50 : 0),
+        ),
+      ),
       child: ListTile(
         onTap: () => _setActiveIndex(index),
         contentPadding: EdgeInsets.symmetric(
@@ -68,14 +70,14 @@ class _HomePageState extends State<HomePage> {
           horizontal: 80,
         ),
         title: Text(
-          date.dateOfYear,
+          'Day ${index + 1}',
           style: TextStyle(
             color: titleColor,
             fontSize: 24,
           ),
         ),
         subtitle: Text(
-          date.dayOfWeek.toUpperCase(),
+          'Day ${index + 1}'.toUpperCase(),
           style: TextStyle(
             color: subtitleColor,
             fontSize: 18,
@@ -86,12 +88,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildDetails(double width) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 100),
       width: width,
       decoration: BoxDecoration(
         color: Colors.purple,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
+          topLeft: Radius.circular(_activeIndex != 0 ? 30 : 0),
         ),
       ),
     );
@@ -100,8 +103,9 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHeader(BuildContext context) {
     final sidebarSize = MediaQuery.of(context).size.width * SIDEBAR_SIZE;
 
-    return Padding(
-      padding: EdgeInsets.fromLTRB(sidebarSize, 20, 50, 50),
+    return Container(
+      color: Colors.white,
+      padding: EdgeInsets.fromLTRB(sidebarSize, 20, 50, 100),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -129,8 +133,8 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: EdgeInsets.only(right: 10),
                 child: CircleAvatar(
+                  backgroundColor: Colors.black,
                   radius: AVATAR_SIZE,
-                  child: Image.network(AVATAR),
                 ),
               ),
               Column(
