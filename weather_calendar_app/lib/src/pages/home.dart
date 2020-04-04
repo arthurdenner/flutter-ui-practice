@@ -10,13 +10,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final sidebarSize = width * SIDEBAR_SIZE;
+
     return SafeArea(
       child: Scaffold(
         body: Column(
           children: <Widget>[
             _buildHeader(context),
             SizedBox(height: 50),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    color: Colors.grey,
+                    width: sidebarSize,
+                  ),
+                  _buildDetails(width - sidebarSize),
+                ],
+              ),
+            )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDetails(double width) {
+    return Container(
+      width: width,
+      decoration: BoxDecoration(
+        color: Colors.purple,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
         ),
       ),
     );
