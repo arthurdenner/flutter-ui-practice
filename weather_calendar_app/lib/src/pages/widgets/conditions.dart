@@ -1,63 +1,60 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/models/weather_data.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 
-class Condition {
-  const Condition({
-    @required this.icon,
-    @required this.label,
-  });
-
-  final Widget icon;
-  final String label;
-}
-
-final items = [
-  Condition(
-    icon: Image.asset('assets/icons/rain.png', width: 30),
-    label: '90% Precipitation',
-  ),
-  Condition(
-    icon: Image.asset('assets/icons/wind.png', width: 30),
-    label: '17 km/h Wind',
-  ),
-  Condition(
-    icon: Image.asset('assets/icons/drop.png', width: 30),
-    label: '30% Humidity',
-  ),
-];
-
 class Conditions extends StatelessWidget {
-  const Conditions({Key key}) : super(key: key);
+  const Conditions({
+    Key key,
+    @required this.data,
+  }) : super(key: key);
+
+  final WeatherData data;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView(
       shrinkWrap: true,
-      itemCount: items.length,
       physics: NeverScrollableScrollPhysics(),
-      itemBuilder: (_, index) {
-        final item = items[index];
+      children: <Widget>[
+        _buildCondition(
+          image: 'assets/icons/rain.png',
+          label: '${data.precipitation}% Precipitation',
+        ),
+        _buildCondition(
+          image: 'assets/icons/wind.png',
+          label: '${data.wind} km/h Wind',
+        ),
+        _buildCondition(
+          image: 'assets/icons/drop.png',
+          label: '${data.humidity}% Humidity',
+        ),
+      ],
+    );
+  }
 
-        return Padding(
-          padding: EdgeInsets.only(bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 30),
-                child: item.icon,
-              ),
-              Text(
-                item.label,
-                style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: 16,
-                ),
-              ),
-            ],
+  Widget _buildCondition({
+    @required String image,
+    @required String label,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 30),
+            child: Image.asset(image, width: 30),
           ),
-        );
-      },
+          Text(
+            label,
+            style: TextStyle(
+              color: AppColors.white,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

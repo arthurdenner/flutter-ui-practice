@@ -1,10 +1,8 @@
-import 'dart:math';
-
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/pages/widgets/details.dart';
 import 'package:weather_calendar_app/src/pages/widgets/header.dart';
 import 'package:weather_calendar_app/src/pages/widgets/sidebar.dart';
-import 'package:weather_calendar_app/src/utils/math.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -49,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     if (idx != _activeIndex) {
       setState(() {
         _activeIndex = idx;
-        _temperature = integerInRange(Random(), 1, 30);
+        _temperature = faker.randomGenerator.integer(30, min: 1);
       });
     }
   }

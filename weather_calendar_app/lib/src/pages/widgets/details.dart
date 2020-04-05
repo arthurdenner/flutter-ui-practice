@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/models/weather_data.dart';
 import 'package:weather_calendar_app/src/pages/widgets/conditions.dart';
 import 'package:weather_calendar_app/src/pages/widgets/hour_slider.dart';
 import 'package:weather_calendar_app/src/pages/widgets/quote.dart';
@@ -29,7 +30,7 @@ class _DetailsState extends State<Details> {
   String _key;
   AnimationController _controller;
   double _activeValue = 8;
-  String _activeHour = formatHour(8);
+  WeatherData _data = WeatherData(8);
 
   @override
   void initState() {
@@ -55,8 +56,8 @@ class _DetailsState extends State<Details> {
     _controller.forward()
       ..then((value) {
         setState(() {
-          _activeHour = formatHour(_activeValue);
           _key = DateTime.now().toString();
+          _data = WeatherData(_activeValue);
         });
       });
   }
@@ -134,7 +135,7 @@ class _DetailsState extends State<Details> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Text(
-        '$_activeHour, Heavy rain',
+        '${formatHour(_data.hour)}, Heavy rain',
         style: TextStyle(
           color: AppColors.lightBlue,
           fontSize: 18,
@@ -148,8 +149,10 @@ class _DetailsState extends State<Details> {
   Widget _buildConditionsAndQuote() {
     final isSm = isSmBreakpoint(context);
     final children = [
-      isSm ? Expanded(child: Conditions()) : Conditions(),
-      isSm ? Expanded(child: Quote()) : Quote(),
+      isSm ? Expanded(child: Conditions(data: _data)) : Conditions(data: _data),
+      isSm
+          ? Expanded(child: Quote(quote: _data.sentence))
+          : Quote(quote: _data.sentence),
     ];
 
     return Padding(

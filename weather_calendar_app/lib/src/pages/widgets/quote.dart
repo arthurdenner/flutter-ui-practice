@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 
-const MESSAGE = 'Nullam in viverra leo. Duis interdum augue sed ante rutrum.';
-
 class Quote extends StatelessWidget {
   const Quote({
     Key key,
+    @required this.quote,
   }) : super(key: key);
+
+  final String quote;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class Quote extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.fromLTRB(10, 20, 0, 0),
             child: Text(
-              MESSAGE,
+              quote,
               softWrap: true,
               style: TextStyle(
                 color: AppColors.white,
