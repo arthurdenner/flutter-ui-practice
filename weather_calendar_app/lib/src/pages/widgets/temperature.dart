@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/pages/widgets/animated_value.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 
 class Temperature extends StatelessWidget {
@@ -21,15 +22,7 @@ class Temperature extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(right: 10),
-              child: Text(
-                '$value',
-                style: TextStyle(
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 100,
-                  height: 1,
-                ),
-              ),
+              child: AnimatedValue(value: value),
             ),
             Padding(
               padding: EdgeInsets.only(top: 5),

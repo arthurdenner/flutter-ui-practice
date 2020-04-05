@@ -19,8 +19,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(_temperature);
-
     return SafeArea(
       child: Scaffold(
         body: Column(
