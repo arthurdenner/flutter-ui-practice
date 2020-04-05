@@ -23,7 +23,6 @@ class _DetailsState extends State<Details> {
     return Expanded(
       flex: isSm ? 4 : 2,
       child: Container(
-        padding: EdgeInsets.all(30),
         decoration: BoxDecoration(
           color: AppColors.purple,
           borderRadius: BorderRadius.only(
@@ -52,16 +51,17 @@ class _DetailsState extends State<Details> {
         isSm ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center;
 
     return <Widget>[
-      Row(
-        mainAxisAlignment: mainAlignment,
-        children: <Widget>[
-          Temperature(),
-          if (isSm) _buildAnimation(),
-        ],
+      Padding(
+        padding: EdgeInsets.all(30),
+        child: Row(
+          mainAxisAlignment: mainAlignment,
+          children: <Widget>[
+            Temperature(),
+            if (isSm) _buildAnimation(),
+          ],
+        ),
       ),
-      SizedBox(height: 30),
       _buildConditionsAndQuote(),
-      SizedBox(height: 30),
       HourSlider(
         onChange: _setActiveValue,
         value: _activeValue,
@@ -77,10 +77,13 @@ class _DetailsState extends State<Details> {
       isSm ? Expanded(child: Quote()) : Quote(),
     ];
 
-    return Flex(
-      direction: isSm ? Axis.horizontal : Axis.vertical,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: children,
+    return Padding(
+      padding: EdgeInsets.all(30),
+      child: Flex(
+        direction: isSm ? Axis.horizontal : Axis.vertical,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: children,
+      ),
     );
   }
 
