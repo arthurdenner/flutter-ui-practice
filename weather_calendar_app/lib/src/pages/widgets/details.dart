@@ -14,11 +14,13 @@ class Details extends StatefulWidget {
   const Details({
     Key key,
     @required this.activeIndex,
+    @required this.onChangeTime,
     @required this.temperature,
   })  : assert(temperature != null),
         super(key: key);
 
   final int activeIndex;
+  final VoidCallback onChangeTime;
   final num temperature;
 
   @override
@@ -52,7 +54,11 @@ class _DetailsState extends State<Details> {
     }
   }
 
-  void _updateDetails() {
+  void _updateDetails([bool changeTime = false]) {
+    if (changeTime) {
+      widget.onChangeTime();
+    }
+
     _controller.forward()
       ..then((value) {
         setState(() {
@@ -174,6 +180,6 @@ class _DetailsState extends State<Details> {
 
   void _setActiveValue(value) {
     setState(() => _activeValue = value);
-    _debouncer.run(() => _updateDetails());
+    _debouncer.run(() => _updateDetails(true));
   }
 }

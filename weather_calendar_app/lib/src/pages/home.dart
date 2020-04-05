@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
                   Details(
                     activeIndex: _activeIndex,
                     temperature: _temperature,
+                    onChangeTime: _setTemperature,
                   ),
                 ],
               ),
@@ -43,11 +44,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _setTemperature() {
+    setState(() {
+      _temperature = faker.randomGenerator.integer(40, min: 1);
+    });
+  }
+
   void _setActiveIndex(int idx) {
     if (idx != _activeIndex) {
       setState(() {
         _activeIndex = idx;
-        _temperature = faker.randomGenerator.integer(30, min: 1);
+        _temperature = faker.randomGenerator.integer(40, min: 1);
       });
     }
   }
