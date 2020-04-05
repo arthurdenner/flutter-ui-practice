@@ -21,36 +21,35 @@ class Conditions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: items.length,
-        itemBuilder: (_, index) {
-          final item = items[index];
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: items.length,
+      itemBuilder: (_, index) {
+        final item = items[index];
 
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(right: 30),
-                  child: Icon(
-                    item.icon,
-                    color: Colors.white,
-                  ),
+        return Padding(
+          padding: EdgeInsets.only(bottom: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(right: 30),
+                child: Icon(
+                  item.icon,
+                  color: Colors.white,
                 ),
-                Text(
-                  item.label,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
+              ),
+              Text(
+                item.label,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

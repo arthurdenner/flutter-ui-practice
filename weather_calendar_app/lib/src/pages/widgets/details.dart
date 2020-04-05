@@ -11,48 +11,37 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  double _activeValue = 1;
+  double _activeValue = 8;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
       child: Container(
-        padding: EdgeInsets.all(100),
+        padding: EdgeInsets.all(30),
         decoration: BoxDecoration(
           color: Colors.purple,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Temperature(),
-                Text('FLARE'),
-              ],
-            ),
-            SizedBox(height: 80),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Conditions(),
-                Quote(),
-              ],
-            ),
+            Temperature(),
+            SizedBox(height: 50),
+            // Text('FLARE'),
+            Conditions(),
+            Quote(),
             SizedBox(height: 30),
             Slider(
-              min: 1,
-              max: 6,
-              divisions: 6,
+              min: 8,
+              max: 23,
+              divisions: 5,
               onChanged: _setActiveValue,
               value: _activeValue,
               activeColor: Colors.cyan,
               inactiveColor: Colors.grey,
+              label: '${_activeValue.toInt()}:00',
             ),
           ],
         ),

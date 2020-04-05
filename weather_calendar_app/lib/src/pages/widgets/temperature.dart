@@ -8,34 +8,44 @@ class Temperature extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '15',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 100,
-                height: 1,
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Text(
+                '15',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
+                  fontSize: 100,
+                  height: 1,
+                  letterSpacing: -10,
+                ),
               ),
             ),
-            Text(
-              '°C',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 60,
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Text(
+                '°C',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 60,
+                  height: 1,
+                ),
               ),
             ),
           ],
         ),
-        SizedBox(height: 20),
         Text(
           '8:00 PM, Heavy rain',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 24,
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
             height: 1,
           ),
         ),
