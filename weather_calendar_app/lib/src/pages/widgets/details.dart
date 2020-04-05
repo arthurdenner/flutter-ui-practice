@@ -60,10 +60,8 @@ class _DetailsState extends State<Details> {
         ],
       ),
       SizedBox(height: 30),
-      Conditions(),
-      SizedBox(height: 20),
-      Quote(),
-      SizedBox(height: 20),
+      _buildConditionsAndQuote(),
+      SizedBox(height: 30),
       Slider(
         min: 8,
         max: 23,
@@ -75,6 +73,21 @@ class _DetailsState extends State<Details> {
         label: formatHour(_activeValue),
       ),
     ];
+  }
+
+  Widget _buildConditionsAndQuote() {
+    final isSm = isSmBreakpoint(context);
+    final children = [
+      isSm ? Expanded(child: Conditions()) : Conditions(),
+      if (!isSm) SizedBox(height: 20),
+      isSm ? Expanded(child: Quote()) : Quote(),
+    ];
+
+    return Flex(
+      direction: isSm ? Axis.horizontal : Axis.vertical,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: children,
+    );
   }
 
   Widget _buildAnimation() {
