@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
-const numOfDays = 7;
+const numOfDays = 5;
 const weekDays = [
   'Monday',
   'Tuesday',
@@ -61,7 +61,8 @@ class Sidebar extends StatelessWidget {
           color: AppColors.purple,
           height: fixedSize ? 60 : null,
         ),
-        Container(
+        AnimatedContainer(
+          duration: Duration(milliseconds: 300),
           height: fixedSize ? 60 : null,
           decoration: BoxDecoration(
             color: AppColors.white,
@@ -102,7 +103,7 @@ class Sidebar extends StatelessWidget {
           ),
         ),
         AnimatedContainer(
-          duration: Duration(milliseconds: 50),
+          duration: Duration(milliseconds: 300),
           decoration: BoxDecoration(
             color: bgColor,
             borderRadius: BorderRadius.only(

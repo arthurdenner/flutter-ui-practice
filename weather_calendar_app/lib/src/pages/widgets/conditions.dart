@@ -23,7 +23,7 @@ class Conditions extends StatelessWidget {
         ),
         _buildCondition(
           image: 'assets/icons/wind.png',
-          label: '${data.wind} km/h Wind',
+          label: '${data.wind}km/h Wind',
         ),
         _buildCondition(
           image: 'assets/icons/drop.png',

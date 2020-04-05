@@ -126,6 +126,7 @@ class _DetailsState extends State<Details> {
           manualTrigger: true,
           controller: (c) => _controller = c,
           child: SlideInUp(
+            from: 30,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -133,14 +134,14 @@ class _DetailsState extends State<Details> {
                 SizedBox(height: 50),
                 _buildConditionsAndQuote(),
                 SizedBox(height: 30),
-                HourSlider(
-                  onChange: _setActiveValue,
-                  value: _activeValue,
-                ),
               ],
             ),
           ),
         ),
+      ),
+      HourSlider(
+        onChange: _setActiveValue,
+        value: _activeValue,
       ),
     ];
   }
