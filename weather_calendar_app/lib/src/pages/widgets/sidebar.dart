@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
+const weekDays = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday'
+];
+
 class Sidebar extends StatelessWidget {
   const Sidebar({
     Key key,
@@ -80,6 +90,8 @@ class Sidebar extends StatelessWidget {
     final bgColor = isActive ? AppColors.purple : AppColors.white;
     final titleColor = isActive ? AppColors.white : Colors.black;
     final subtitleColor = isActive ? AppColors.white : Colors.black26;
+    final date = (index + 1).toString().padLeft(2, '0');
+    final weekday = weekDays[index];
 
     return Stack(
       children: <Widget>[
@@ -101,12 +113,12 @@ class Sidebar extends StatelessWidget {
             onTap: () => onSelect(index),
             contentPadding: EdgeInsets.symmetric(
               vertical: 5,
-              horizontal: 30,
+              horizontal: 25,
             ),
             title: Padding(
               padding: EdgeInsets.only(bottom: 10),
               child: Text(
-                'Day ${index + 1}',
+                'Feb $date',
                 style: TextStyle(
                   color: titleColor,
                   fontSize: 18,
@@ -114,7 +126,8 @@ class Sidebar extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              'Day ${index + 1}'.toUpperCase(),
+              weekday.toUpperCase(),
+              softWrap: false,
               style: TextStyle(
                 color: subtitleColor,
                 fontSize: 14,
