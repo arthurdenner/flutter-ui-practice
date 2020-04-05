@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
+const numOfDays = 7;
 const weekDays = [
   'Monday',
   'Tuesday',
@@ -34,7 +35,7 @@ class Sidebar extends StatelessWidget {
           children: [
             if (!isSm) _buildBlankSpace(0),
             _buildList(isSm),
-            if (!isSm) _buildBlankSpace(5),
+            if (!isSm) _buildBlankSpace(numOfDays),
           ],
         ),
       ),
@@ -43,7 +44,7 @@ class Sidebar extends StatelessWidget {
 
   Widget _buildList(bool isSm) {
     final list = ListView.builder(
-      itemCount: isSm ? 7 : 5,
+      itemCount: isSm ? numOfDays + 2 : numOfDays,
       itemBuilder: _buildSidebarTile,
       shrinkWrap: true,
       physics: ClampingScrollPhysics(),
@@ -81,8 +82,8 @@ class Sidebar extends StatelessWidget {
 
     if (isSm && idx == 0) {
       return _buildBlankSpace(0, isSm);
-    } else if (isSm && idx == 6) {
-      return _buildBlankSpace(5, isSm);
+    } else if (isSm && idx == numOfDays + 1) {
+      return _buildBlankSpace(numOfDays, isSm);
     }
 
     final index = isSm ? idx - 1 : idx;
