@@ -29,6 +29,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   final _debouncer = Debouncer();
+  final _scrollController = ScrollController();
   String _key;
   AnimationController _controller;
   double _activeValue = 8;
@@ -61,6 +62,12 @@ class _DetailsState extends State<Details> {
 
     _controller.forward()
       ..then((value) {
+        _scrollController.animateTo(
+          0.0,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+        );
+
         setState(() {
           _key = DateTime.now().toString();
           _data = WeatherData(_activeValue);
@@ -92,6 +99,7 @@ class _DetailsState extends State<Details> {
 
     return ListView(
       children: children,
+      controller: _scrollController,
       padding: EdgeInsets.symmetric(vertical: 30),
       physics: ClampingScrollPhysics(),
     );
