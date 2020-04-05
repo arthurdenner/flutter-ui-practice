@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/pages/widgets/details.dart';
 import 'package:weather_calendar_app/src/pages/widgets/header.dart';
 import 'package:weather_calendar_app/src/pages/widgets/sidebar.dart';
+import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -15,6 +16,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isSm = isSmBreakpoint(context);
+
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -27,7 +30,11 @@ class _HomePageState extends State<HomePage> {
                     activeIndex: _activeIndex,
                     onSelect: _setActiveIndex,
                   ),
-                  Details(),
+                  Expanded(
+                    child: Center(child: Text('A')),
+                    flex: isSm ? 4 : 2,
+                  ),
+                  // Details(),
                 ],
               ),
             )
