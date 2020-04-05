@@ -47,7 +47,7 @@ class Sidebar extends StatelessWidget {
         onTap: () => onSelect(index),
         contentPadding: EdgeInsets.symmetric(
           vertical: 10,
-          horizontal: 80,
+          horizontal: 30,
         ),
         title: Text(
           'Day ${index + 1}',
