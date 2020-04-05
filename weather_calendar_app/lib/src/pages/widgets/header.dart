@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
+import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Header extends StatelessWidget {
   const Header({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final shouldShowInfo = isSmBreakpoint(context);
+
     return Container(
       padding: EdgeInsets.all(20),
       child: Row(
@@ -39,24 +42,25 @@ class Header extends StatelessWidget {
                   radius: AVATAR_SIZE,
                 ),
               ),
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: <Widget>[
-              //     Text(
-              //       'Alexander Paul',
-              //       style: TextStyle(
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     SizedBox(height: 5),
-              //     Text(
-              //       'Basic level',
-              //       style: TextStyle(
-              //         color: Colors.black26,
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              if (shouldShowInfo)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Alexander Paul',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Basic level',
+                      style: TextStyle(
+                        color: Colors.black26,
+                      ),
+                    ),
+                  ],
+                ),
             ],
           ),
         ],
