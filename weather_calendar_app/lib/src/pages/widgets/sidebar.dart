@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_calendar_app/src/utils/constants.dart';
 
 class Sidebar extends StatelessWidget {
   const Sidebar({
@@ -15,23 +14,21 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final sidebarSize = width * SIDEBAR_SIZE;
-
-    return Container(
-      width: sidebarSize,
-      color: Colors.purple,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _buildBlankSpace(0),
-          ListView.builder(
-            itemCount: 5,
-            itemBuilder: _buildSidebarTile,
-            shrinkWrap: true,
-          ),
-          _buildBlankSpace(5),
-        ],
+    return Expanded(
+      child: Container(
+        color: Colors.purple,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _buildBlankSpace(0),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: _buildSidebarTile,
+              shrinkWrap: true,
+            ),
+            _buildBlankSpace(5),
+          ],
+        ),
       ),
     );
   }
@@ -71,11 +68,14 @@ class Sidebar extends StatelessWidget {
           vertical: 10,
           horizontal: 30,
         ),
-        title: Text(
-          'Day ${index + 1}',
-          style: TextStyle(
-            color: titleColor,
-            fontSize: 18,
+        title: Padding(
+          padding: EdgeInsets.only(bottom: 10),
+          child: Text(
+            'Day ${index + 1}',
+            style: TextStyle(
+              color: titleColor,
+              fontSize: 18,
+            ),
           ),
         ),
         subtitle: Text(

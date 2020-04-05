@@ -6,8 +6,6 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final sidebarSize = MediaQuery.of(context).size.width * SIDEBAR_SIZE;
-
     return Container(
       padding: EdgeInsets.all(20),
       child: Row(
