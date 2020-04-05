@@ -39,9 +39,14 @@ class _DetailsState extends State<Details> {
     final children = _buildChildren(isSm);
 
     return isSm
-        ? ListView(children: children)
+        ? ListView.separated(
+            itemCount: children.length,
+            itemBuilder: (_, idx) => children[idx],
+            separatorBuilder: (_, idx) => SizedBox(height: 50),
+            padding: EdgeInsets.symmetric(vertical: 30),
+          )
         : Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: children,
           );
   }
@@ -52,7 +57,7 @@ class _DetailsState extends State<Details> {
 
     return <Widget>[
       Padding(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.symmetric(horizontal: 30),
         child: Row(
           mainAxisAlignment: mainAlignment,
           children: <Widget>[
@@ -78,7 +83,7 @@ class _DetailsState extends State<Details> {
     ];
 
     return Padding(
-      padding: EdgeInsets.all(30),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Flex(
         direction: isSm ? Axis.horizontal : Axis.vertical,
         crossAxisAlignment: CrossAxisAlignment.end,

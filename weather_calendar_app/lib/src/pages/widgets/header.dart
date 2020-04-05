@@ -36,31 +36,31 @@ class Header extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(right: 10),
-                child: CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: AVATAR_SIZE,
-                ),
+              CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: AVATAR_SIZE,
               ),
               if (shouldShowInfo)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Alexander Paul',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Alexander Paul',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      'Basic level',
-                      style: TextStyle(
-                        color: Colors.black26,
+                      SizedBox(height: 5),
+                      Text(
+                        'Basic level',
+                        style: TextStyle(
+                          color: Colors.black26,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
             ],
           ),
