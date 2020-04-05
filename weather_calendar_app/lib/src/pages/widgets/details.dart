@@ -4,7 +4,7 @@ import 'package:weather_calendar_app/src/pages/widgets/quote.dart';
 import 'package:weather_calendar_app/src/pages/widgets/temperature.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 
-class Details extends StatelessWidget {
+class Details extends StatefulWidget {
   const Details({
     Key key,
     @required this.activeIndex,
@@ -12,6 +12,13 @@ class Details extends StatelessWidget {
         super(key: key);
 
   final int activeIndex;
+
+  @override
+  _DetailsState createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  double _activeValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class Details extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.purple,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(activeIndex != 0 ? 30 : 0),
+          topLeft: Radius.circular(widget.activeIndex != 0 ? 30 : 0),
         ),
       ),
       child: Column(
@@ -47,8 +54,22 @@ class Details extends StatelessWidget {
               Quote(),
             ],
           ),
+          SizedBox(height: 30),
+          Slider(
+            min: 1,
+            max: 6,
+            divisions: 6,
+            onChanged: _setActiveValue,
+            value: _activeValue,
+            activeColor: Colors.cyan,
+            inactiveColor: Colors.grey,
+          ),
         ],
       ),
     );
+  }
+
+  void _setActiveValue(value) {
+    setState(() => _activeValue = value);
   }
 }
