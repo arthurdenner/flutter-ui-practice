@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Sidebar extends StatelessWidget {
   const Sidebar({
@@ -14,27 +15,34 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isSm = isSmBreakpoint(context);
+
     return Expanded(
       child: Container(
         color: Colors.purple,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView.builder(
-                itemCount: 7,
-                itemBuilder: _buildSidebarTile,
-                shrinkWrap: true,
-              ),
-            ),
-          ],
-        ),
+        child: Column(children: [
+          if (!isSm) _buildBlankSpace(0),
+          _buildList(isSm),
+          if (!isSm) _buildBlankSpace(5),
+        ]),
       ),
     );
   }
 
-  Widget _buildBlankSpace(int index) {
-    return Container(
-      height: 50,
+  Widget _buildList(bool isSm) {
+    final list = ListView.builder(
+      itemCount: isSm ? 7 : 5,
+      itemBuilder: _buildSidebarTile,
+      shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
+    );
+
+    return isSm ? Expanded(child: list) : list;
+  }
+
+  Widget _buildBlankSpace(int index, [bool fixedSize = false]) {
+    final child = Container(
+      height: fixedSize ? 60 : null,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -43,17 +51,21 @@ class Sidebar extends StatelessWidget {
         ),
       ),
     );
+
+    return fixedSize ? child : Expanded(child: child);
   }
 
-  Widget _buildSidebarTile(BuildContext context, int index) {
-    if (index == 0) {
-      return _buildBlankSpace(0);
-    } else if (index == 6) {
-      return _buildBlankSpace(5);
+  Widget _buildSidebarTile(BuildContext context, int idx) {
+    final isSm = isSmBreakpoint(context);
+
+    if (isSm && idx == 0) {
+      return _buildBlankSpace(0, isSm);
+    } else if (isSm && idx == 6) {
+      return _buildBlankSpace(5, isSm);
     }
 
-    final actualIndex = index - 1;
-    final isActive = actualIndex == activeIndex;
+    final index = isSm ? idx - 1 : idx;
+    final isActive = index == activeIndex;
     final bgColor = isActive ? Colors.purple : Colors.white;
     final titleColor = isActive ? Colors.white : Colors.black;
     final subtitleColor = isActive ? Colors.white : Colors.black26;
@@ -63,20 +75,20 @@ class Sidebar extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(activeIndex - 1 == actualIndex ? 30 : 0),
-          topRight: Radius.circular(activeIndex + 1 == actualIndex ? 30 : 0),
+          bottomRight: Radius.circular(activeIndex - 1 == index ? 30 : 0),
+          topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
         ),
       ),
       child: ListTile(
-        onTap: () => onSelect(actualIndex),
+        onTap: () => onSelect(index),
         contentPadding: EdgeInsets.symmetric(
-          vertical: 10,
+          vertical: 5,
           horizontal: 30,
         ),
         title: Padding(
           padding: EdgeInsets.only(bottom: 10),
           child: Text(
-            'Day $index',
+            'Day ${index + 1}',
             style: TextStyle(
               color: titleColor,
               fontSize: 18,
@@ -84,7 +96,7 @@ class Sidebar extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          'Day $index'.toUpperCase(),
+          'Day ${index + 1}'.toUpperCase(),
           style: TextStyle(
             color: subtitleColor,
             fontSize: 14,

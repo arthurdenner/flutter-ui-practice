@@ -10,6 +10,7 @@ class Header extends StatelessWidget {
     final shouldShowInfo = isSmBreakpoint(context);
 
     return Container(
+      color: Colors.white,
       padding: EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
