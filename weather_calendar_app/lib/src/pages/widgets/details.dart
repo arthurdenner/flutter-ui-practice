@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/pages/widgets/conditions.dart';
+import 'package:weather_calendar_app/src/pages/widgets/hour_slider.dart';
 import 'package:weather_calendar_app/src/pages/widgets/quote.dart';
 import 'package:weather_calendar_app/src/pages/widgets/temperature.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
-import 'package:weather_calendar_app/src/utils/format.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Details extends StatefulWidget {
@@ -62,15 +62,9 @@ class _DetailsState extends State<Details> {
       SizedBox(height: 30),
       _buildConditionsAndQuote(),
       SizedBox(height: 30),
-      Slider(
-        min: 8,
-        max: 23,
-        divisions: 5,
-        onChanged: _setActiveValue,
+      HourSlider(
+        onChange: _setActiveValue,
         value: _activeValue,
-        activeColor: Colors.cyan,
-        inactiveColor: Colors.grey,
-        label: formatHour(_activeValue),
       ),
     ];
   }
