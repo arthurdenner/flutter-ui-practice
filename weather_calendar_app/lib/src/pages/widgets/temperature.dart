@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
+import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Temperature extends StatelessWidget {
   const Temperature({

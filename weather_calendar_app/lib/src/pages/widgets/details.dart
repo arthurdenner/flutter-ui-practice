@@ -30,28 +30,59 @@ class _DetailsState extends State<Details> {
             topLeft: Radius.circular(30),
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Temperature(),
-            SizedBox(height: 30),
-            // Text('FLARE'),
-            Conditions(),
-            SizedBox(height: 20),
-            Quote(),
-            SizedBox(height: 20),
-            Slider(
-              min: 8,
-              max: 23,
-              divisions: 5,
-              onChanged: _setActiveValue,
-              value: _activeValue,
-              activeColor: Colors.cyan,
-              inactiveColor: Colors.grey,
-              label: formatHour(_activeValue),
-            ),
-          ],
-        ),
+        child: _buildList(),
+      ),
+    );
+  }
+
+  Widget _buildList() {
+    final isSm = isSmBreakpoint(context);
+    final children = _buildChildren(isSm);
+
+    return isSm
+        ? ListView(children: children)
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: children,
+          );
+  }
+
+  List<Widget> _buildChildren(bool isSm) {
+    final mainAlignment =
+        isSm ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center;
+
+    return <Widget>[
+      Row(
+        mainAxisAlignment: mainAlignment,
+        children: <Widget>[
+          Temperature(),
+          if (isSm) _buildAnimation(),
+        ],
+      ),
+      SizedBox(height: 30),
+      Conditions(),
+      SizedBox(height: 20),
+      Quote(),
+      SizedBox(height: 20),
+      Slider(
+        min: 8,
+        max: 23,
+        divisions: 5,
+        onChanged: _setActiveValue,
+        value: _activeValue,
+        activeColor: Colors.cyan,
+        inactiveColor: Colors.grey,
+        label: formatHour(_activeValue),
+      ),
+    ];
+  }
+
+  Widget _buildAnimation() {
+    return Text(
+      'ANIMATION',
+      style: TextStyle(
+        color: AppColors.white,
+        fontSize: 20,
       ),
     );
   }
