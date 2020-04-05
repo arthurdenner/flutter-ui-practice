@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/pages/widgets/details.dart';
 import 'package:weather_calendar_app/src/pages/widgets/header.dart';
 import 'package:weather_calendar_app/src/pages/widgets/sidebar.dart';
+import 'package:weather_calendar_app/src/utils/math.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -12,9 +15,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _activeIndex = 0;
+  num _temperature = 15;
 
   @override
   Widget build(BuildContext context) {
+    print(_temperature);
+
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -27,7 +33,9 @@ class _HomePageState extends State<HomePage> {
                     activeIndex: _activeIndex,
                     onSelect: _setActiveIndex,
                   ),
-                  Details(),
+                  Details(
+                    temperature: _temperature,
+                  ),
                 ],
               ),
             )
@@ -38,6 +46,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _setActiveIndex(int idx) {
-    setState(() => _activeIndex = idx);
+    if (idx != _activeIndex) {
+      setState(() {
+        _activeIndex = idx;
+        _temperature = integerInRange(Random(), 1, 30);
+      });
+    }
   }
 }

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
-import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Temperature extends StatelessWidget {
   const Temperature({
     Key key,
-  }) : super(key: key);
+    @required this.value,
+  })  : assert(value != null),
+        super(key: key);
+
+  final num value;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,13 +22,12 @@ class Temperature extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(right: 10),
               child: Text(
-                '15',
+                '$value',
                 style: TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.w300,
                   fontSize: 100,
                   height: 1,
-                  letterSpacing: -10,
                 ),
               ),
             ),

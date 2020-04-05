@@ -7,7 +7,13 @@ import 'package:weather_calendar_app/src/utils/constants.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Details extends StatefulWidget {
-  const Details({Key key}) : super(key: key);
+  const Details({
+    Key key,
+    @required this.temperature,
+  })  : assert(temperature != null),
+        super(key: key);
+
+  final num temperature;
 
   @override
   _DetailsState createState() => _DetailsState();
@@ -53,7 +59,7 @@ class _DetailsState extends State<Details> {
 
   List<Widget> _buildChildren(bool isSm) {
     final mainAlignment =
-        isSm ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center;
+        isSm ? MainAxisAlignment.spaceBetween : MainAxisAlignment.start;
 
     return <Widget>[
       Padding(
@@ -61,7 +67,7 @@ class _DetailsState extends State<Details> {
         child: Row(
           mainAxisAlignment: mainAlignment,
           children: <Widget>[
-            Temperature(),
+            Temperature(value: widget.temperature),
             if (isSm) _buildAnimation(),
           ],
         ),
