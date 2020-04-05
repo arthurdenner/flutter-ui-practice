@@ -5,13 +5,7 @@ import 'package:weather_calendar_app/src/pages/widgets/temperature.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
 
 class Details extends StatefulWidget {
-  const Details({
-    Key key,
-    @required this.activeIndex,
-  })  : assert(activeIndex != null),
-        super(key: key);
-
-  final int activeIndex;
+  const Details({Key key}) : super(key: key);
 
   @override
   _DetailsState createState() => _DetailsState();
@@ -26,13 +20,13 @@ class _DetailsState extends State<Details> {
     final sidebarSize = width * SIDEBAR_SIZE;
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 50),
       width: width - sidebarSize,
       padding: EdgeInsets.all(100),
       decoration: BoxDecoration(
         color: Colors.purple,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(widget.activeIndex != 0 ? 30 : 0),
+          topLeft: Radius.circular(30),
         ),
       ),
       child: Column(

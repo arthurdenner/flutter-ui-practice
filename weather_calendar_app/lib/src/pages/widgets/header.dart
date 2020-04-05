@@ -6,11 +6,10 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sidebarSize = MediaQuery.of(context).size.width * SIDEBAR_SIZE;
+    // final sidebarSize = MediaQuery.of(context).size.width * SIDEBAR_SIZE;
 
     return Container(
-      color: Colors.white,
-      padding: EdgeInsets.fromLTRB(sidebarSize, 20, 50, 100),
+      padding: EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -21,7 +20,7 @@ class Header extends StatelessWidget {
                 'Los Angeles',
                 style: TextStyle(
                   fontSize: 28,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(height: 10),
@@ -42,24 +41,24 @@ class Header extends StatelessWidget {
                   radius: AVATAR_SIZE,
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Alexander Paul',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    'Basic level',
-                    style: TextStyle(
-                      color: Colors.black26,
-                    ),
-                  ),
-                ],
-              ),
+              // Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: <Widget>[
+              //     Text(
+              //       'Alexander Paul',
+              //       style: TextStyle(
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     SizedBox(height: 5),
+              //     Text(
+              //       'Basic level',
+              //       style: TextStyle(
+              //         color: Colors.black26,
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ],

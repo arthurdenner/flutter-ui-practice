@@ -21,9 +21,31 @@ class Sidebar extends StatelessWidget {
     return Container(
       width: sidebarSize,
       color: Colors.purple,
-      child: ListView.builder(
-        itemCount: 30,
-        itemBuilder: _buildSidebarTile,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _buildBlankSpace(0),
+          ListView.builder(
+            itemCount: 5,
+            itemBuilder: _buildSidebarTile,
+            shrinkWrap: true,
+          ),
+          _buildBlankSpace(5),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBlankSpace(int index) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(activeIndex == index ? 30 : 0),
+            topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
+          ),
+        ),
       ),
     );
   }
@@ -35,12 +57,12 @@ class Sidebar extends StatelessWidget {
     final subtitleColor = isActive ? Colors.white : Colors.black26;
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 50),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(activeIndex - 1 == index ? 50 : 0),
-          topRight: Radius.circular(activeIndex + 1 == index ? 50 : 0),
+          bottomRight: Radius.circular(activeIndex - 1 == index ? 30 : 0),
+          topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
         ),
       ),
       child: ListTile(
@@ -53,14 +75,14 @@ class Sidebar extends StatelessWidget {
           'Day ${index + 1}',
           style: TextStyle(
             color: titleColor,
-            fontSize: 24,
+            fontSize: 18,
           ),
         ),
         subtitle: Text(
           'Day ${index + 1}'.toUpperCase(),
           style: TextStyle(
             color: subtitleColor,
-            fontSize: 18,
+            fontSize: 14,
           ),
         ),
       ),
