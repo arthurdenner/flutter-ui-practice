@@ -5,6 +5,8 @@ import 'package:weather_calendar_app/src/pages/widgets/hour_slider.dart';
 import 'package:weather_calendar_app/src/pages/widgets/quote.dart';
 import 'package:weather_calendar_app/src/pages/widgets/temperature.dart';
 import 'package:weather_calendar_app/src/utils/constants.dart';
+import 'package:weather_calendar_app/src/utils/debouncer.dart';
+import 'package:weather_calendar_app/src/utils/format.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Details extends StatefulWidget {
@@ -23,14 +25,16 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+  final _debouncer = Debouncer();
   String _key;
   AnimationController _controller;
   double _activeValue = 8;
+  String _activeHour = formatHour(8);
 
   @override
   void initState() {
     super.initState();
-    _key = widget.activeIndex.toString();
+    _key = DateTime.now().toString();
   }
 
   @override
@@ -43,11 +47,18 @@ class _DetailsState extends State<Details> {
   void didUpdateWidget(Details oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.activeIndex != widget.activeIndex) {
-      _controller.forward()
-        ..then((value) {
-          setState(() => _key = widget.activeIndex.toString());
-        });
+      _updateDetails();
     }
+  }
+
+  void _updateDetails() {
+    _controller.forward()
+      ..then((value) {
+        setState(() {
+          _activeHour = formatHour(_activeValue);
+          _key = DateTime.now().toString();
+        });
+      });
   }
 
   @override
@@ -123,7 +134,7 @@ class _DetailsState extends State<Details> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Text(
-        '8:00 PM, Heavy rain',
+        '$_activeHour, Heavy rain',
         style: TextStyle(
           color: AppColors.lightBlue,
           fontSize: 18,
@@ -160,5 +171,6 @@ class _DetailsState extends State<Details> {
 
   void _setActiveValue(value) {
     setState(() => _activeValue = value);
+    _debouncer.run(() => _updateDetails());
   }
 }
