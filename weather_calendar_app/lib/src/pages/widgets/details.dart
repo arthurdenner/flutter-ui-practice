@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_calendar_app/src/pages/widgets/conditions.dart';
 import 'package:weather_calendar_app/src/pages/widgets/hour_slider.dart';
@@ -20,7 +21,26 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+  String _key;
+  AnimationController _controller;
   double _activeValue = 8;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  void didUpdateWidget(Details oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.temperature != widget.temperature) {
+      _controller.forward()
+        ..then((value) {
+          setState(() => _key = widget.temperature.toString());
+        });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +92,23 @@ class _DetailsState extends State<Details> {
           ],
         ),
       ),
-      _buildConditionsAndQuote(),
-      HourSlider(
-        onChange: _setActiveValue,
-        value: _activeValue,
+      Container(
+        key: Key(_key),
+        child: FadeOut(
+          manualTrigger: true,
+          controller: (c) => _controller = c,
+          child: SlideInUp(
+            child: Column(
+              children: <Widget>[
+                _buildConditionsAndQuote(),
+                HourSlider(
+                  onChange: _setActiveValue,
+                  value: _activeValue,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     ];
   }
