@@ -10,10 +10,12 @@ import 'package:weather_calendar_app/src/utils/media_query.dart';
 class Details extends StatefulWidget {
   const Details({
     Key key,
+    @required this.activeIndex,
     @required this.temperature,
   })  : assert(temperature != null),
         super(key: key);
 
+  final int activeIndex;
   final num temperature;
 
   @override
@@ -26,6 +28,12 @@ class _DetailsState extends State<Details> {
   double _activeValue = 8;
 
   @override
+  void initState() {
+    super.initState();
+    _key = widget.activeIndex.toString();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     _controller.dispose();
@@ -34,10 +42,10 @@ class _DetailsState extends State<Details> {
   @override
   void didUpdateWidget(Details oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.temperature != widget.temperature) {
+    if (oldWidget.activeIndex != widget.activeIndex) {
       _controller.forward()
         ..then((value) {
-          setState(() => _key = widget.temperature.toString());
+          setState(() => _key = widget.activeIndex.toString());
         });
     }
   }
@@ -67,6 +75,7 @@ class _DetailsState extends State<Details> {
     return ListView(
       children: children,
       padding: EdgeInsets.symmetric(vertical: 30),
+      physics: ClampingScrollPhysics(),
     );
   }
 
@@ -129,7 +138,6 @@ class _DetailsState extends State<Details> {
     final isSm = isSmBreakpoint(context);
     final children = [
       isSm ? Expanded(child: Conditions()) : Conditions(),
-      if (!isSm) SizedBox(height: 20),
       isSm ? Expanded(child: Quote()) : Quote(),
     ];
 
@@ -144,12 +152,9 @@ class _DetailsState extends State<Details> {
   }
 
   Widget _buildAnimation() {
-    return Text(
-      'ANIMATION',
-      style: TextStyle(
-        color: AppColors.white,
-        fontSize: 20,
-      ),
+    return Placeholder(
+      fallbackHeight: 100,
+      fallbackWidth: 100,
     );
   }
 

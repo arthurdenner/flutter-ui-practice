@@ -19,9 +19,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: Column(
           children: <Widget>[
             Header(),
             Expanded(
@@ -32,11 +33,12 @@ class _HomePageState extends State<HomePage> {
                     onSelect: _setActiveIndex,
                   ),
                   Details(
+                    activeIndex: _activeIndex,
                     temperature: _temperature,
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

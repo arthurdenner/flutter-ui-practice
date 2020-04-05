@@ -30,7 +30,7 @@ class HourSlider extends StatelessWidget {
           valueIndicatorColor: AppColors.cyan,
           valueIndicatorTextStyle: TextStyle(color: AppColors.purple),
         ),
-        child: Slider.adaptive(
+        child: Slider(
           min: 8,
           max: 23,
           divisions: 5,

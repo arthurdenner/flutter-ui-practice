@@ -20,7 +20,6 @@ class Sidebar extends StatelessWidget {
 
     return Expanded(
       child: Container(
-        color: AppColors.purple,
         child: Column(
           children: [
             if (!isSm) _buildBlankSpace(0),
@@ -38,21 +37,30 @@ class Sidebar extends StatelessWidget {
       itemBuilder: _buildSidebarTile,
       shrinkWrap: true,
       physics: ClampingScrollPhysics(),
+      padding: EdgeInsets.zero,
     );
 
     return isSm ? Expanded(child: list) : list;
   }
 
   Widget _buildBlankSpace(int index, [bool fixedSize = false]) {
-    final child = Container(
-      height: fixedSize ? 60 : null,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(activeIndex == index ? 30 : 0),
-          topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
+    final child = Stack(
+      children: <Widget>[
+        Container(
+          color: AppColors.purple,
+          height: fixedSize ? 60 : null,
         ),
-      ),
+        Container(
+          height: fixedSize ? 60 : null,
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(activeIndex == index ? 30 : 0),
+              topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
+            ),
+          ),
+        ),
+      ],
     );
 
     return fixedSize ? child : Expanded(child: child);
@@ -73,39 +81,48 @@ class Sidebar extends StatelessWidget {
     final titleColor = isActive ? AppColors.white : Colors.black;
     final subtitleColor = isActive ? AppColors.white : Colors.black26;
 
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 50),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(activeIndex - 1 == index ? 30 : 0),
-          topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: Container(
+            color: AppColors.purple,
+          ),
         ),
-      ),
-      child: ListTile(
-        onTap: () => onSelect(index),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 5,
-          horizontal: 30,
-        ),
-        title: Padding(
-          padding: EdgeInsets.only(bottom: 10),
-          child: Text(
-            'Day ${index + 1}',
-            style: TextStyle(
-              color: titleColor,
-              fontSize: 18,
+        AnimatedContainer(
+          duration: Duration(milliseconds: 50),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(activeIndex - 1 == index ? 30 : 0),
+              topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
+            ),
+          ),
+          child: ListTile(
+            onTap: () => onSelect(index),
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 30,
+            ),
+            title: Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Text(
+                'Day ${index + 1}',
+                style: TextStyle(
+                  color: titleColor,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            subtitle: Text(
+              'Day ${index + 1}'.toUpperCase(),
+              style: TextStyle(
+                color: subtitleColor,
+                fontSize: 14,
+              ),
             ),
           ),
         ),
-        subtitle: Text(
-          'Day ${index + 1}'.toUpperCase(),
-          style: TextStyle(
-            color: subtitleColor,
-            fontSize: 14,
-          ),
-        ),
-      ),
+      ],
     );
   }
 }
