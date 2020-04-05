@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/constants.dart';
 
 class Temperature extends StatelessWidget {
   const Temperature({
@@ -19,7 +20,7 @@ class Temperature extends StatelessWidget {
               child: Text(
                 '15',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.w300,
                   fontSize: 100,
                   height: 1,
@@ -32,7 +33,7 @@ class Temperature extends StatelessWidget {
               child: Text(
                 '°C',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: AppColors.lightPurple,
                   fontSize: 60,
                   height: 1,
                 ),
@@ -40,10 +41,11 @@ class Temperature extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: 10),
         Text(
           '8:00 PM, Heavy rain',
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.lightBlue,
             fontSize: 18,
             fontWeight: FontWeight.w500,
             height: 1,

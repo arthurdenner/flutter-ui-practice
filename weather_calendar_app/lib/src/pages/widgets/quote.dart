@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/constants.dart';
 
 const MESSAGE = 'Nullam in viverra leo. Duis interdum augue sed ante rutrum.';
 
@@ -12,14 +13,7 @@ class Quote extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          '"',
-          style: TextStyle(
-            color: Colors.grey,
-            fontStyle: FontStyle.italic,
-            fontSize: 50,
-          ),
-        ),
+        Image.asset('assets/icons/quote.png', height: 25),
         Expanded(
           child: Padding(
             padding: EdgeInsets.fromLTRB(10, 20, 0, 0),
@@ -27,7 +21,7 @@ class Quote extends StatelessWidget {
               MESSAGE,
               softWrap: true,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.white,
                 fontStyle: FontStyle.italic,
                 fontSize: 16,
               ),

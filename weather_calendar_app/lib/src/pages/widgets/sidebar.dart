@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/constants.dart';
 import 'package:weather_calendar_app/src/utils/media_query.dart';
 
 class Sidebar extends StatelessWidget {
@@ -19,12 +20,14 @@ class Sidebar extends StatelessWidget {
 
     return Expanded(
       child: Container(
-        color: Colors.purple,
-        child: Column(children: [
-          if (!isSm) _buildBlankSpace(0),
-          _buildList(isSm),
-          if (!isSm) _buildBlankSpace(5),
-        ]),
+        color: AppColors.purple,
+        child: Column(
+          children: [
+            if (!isSm) _buildBlankSpace(0),
+            _buildList(isSm),
+            if (!isSm) _buildBlankSpace(5),
+          ],
+        ),
       ),
     );
   }
@@ -44,7 +47,7 @@ class Sidebar extends StatelessWidget {
     final child = Container(
       height: fixedSize ? 60 : null,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(activeIndex == index ? 30 : 0),
           topRight: Radius.circular(activeIndex + 1 == index ? 30 : 0),
@@ -66,9 +69,9 @@ class Sidebar extends StatelessWidget {
 
     final index = isSm ? idx - 1 : idx;
     final isActive = index == activeIndex;
-    final bgColor = isActive ? Colors.purple : Colors.white;
-    final titleColor = isActive ? Colors.white : Colors.black;
-    final subtitleColor = isActive ? Colors.white : Colors.black26;
+    final bgColor = isActive ? AppColors.purple : AppColors.white;
+    final titleColor = isActive ? AppColors.white : Colors.black;
+    final subtitleColor = isActive ? AppColors.white : Colors.black26;
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 50),

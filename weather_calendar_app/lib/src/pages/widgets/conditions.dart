@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_calendar_app/src/utils/constants.dart';
 
 class Condition {
   const Condition({
@@ -6,14 +7,23 @@ class Condition {
     @required this.label,
   });
 
-  final IconData icon;
+  final Widget icon;
   final String label;
 }
 
-const items = [
-  Condition(icon: Icons.cloud, label: '90% Precipitation'),
-  Condition(icon: Icons.keyboard_arrow_right, label: '17 km/h Wind'),
-  Condition(icon: Icons.place, label: '30% Humidity'),
+final items = [
+  Condition(
+    icon: Image.asset('assets/icons/rain.png', width: 30),
+    label: '90% Precipitation',
+  ),
+  Condition(
+    icon: Image.asset('assets/icons/wind.png', width: 30),
+    label: '17 km/h Wind',
+  ),
+  Condition(
+    icon: Image.asset('assets/icons/drop.png', width: 30),
+    label: '30% Humidity',
+  ),
 ];
 
 class Conditions extends StatelessWidget {
@@ -24,25 +34,23 @@ class Conditions extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       itemCount: items.length,
+      physics: NeverScrollableScrollPhysics(),
       itemBuilder: (_, index) {
         final item = items[index];
 
         return Padding(
-          padding: EdgeInsets.only(bottom: 30),
+          padding: EdgeInsets.only(bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(right: 30),
-                child: Icon(
-                  item.icon,
-                  color: Colors.white,
-                ),
+                child: item.icon,
               ),
               Text(
                 item.label,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 16,
                 ),
               ),
