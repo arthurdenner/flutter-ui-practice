@@ -64,17 +64,10 @@ class _DetailsState extends State<Details> {
     final isSm = isSmBreakpoint(context);
     final children = _buildChildren(isSm);
 
-    return isSm
-        ? ListView.separated(
-            itemCount: children.length,
-            itemBuilder: (_, idx) => children[idx],
-            separatorBuilder: (_, idx) => SizedBox(height: 50),
-            padding: EdgeInsets.symmetric(vertical: 30),
-          )
-        : Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: children,
-          );
+    return ListView(
+      children: children,
+      padding: EdgeInsets.symmetric(vertical: 30),
+    );
   }
 
   List<Widget> _buildChildren(bool isSm) {
@@ -99,8 +92,12 @@ class _DetailsState extends State<Details> {
           controller: (c) => _controller = c,
           child: SlideInUp(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                _buildTime(),
+                SizedBox(height: 50),
                 _buildConditionsAndQuote(),
+                SizedBox(height: 30),
                 HourSlider(
                   onChange: _setActiveValue,
                   value: _activeValue,
@@ -111,6 +108,21 @@ class _DetailsState extends State<Details> {
         ),
       ),
     ];
+  }
+
+  Widget _buildTime() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      child: Text(
+        '8:00 PM, Heavy rain',
+        style: TextStyle(
+          color: AppColors.lightBlue,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          height: 1,
+        ),
+      ),
+    );
   }
 
   Widget _buildConditionsAndQuote() {
