@@ -27,7 +27,7 @@ class NikeAppBar extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               color: AppColors.main,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(100),
             ),
             height: 75,
             width: 40,
