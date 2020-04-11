@@ -9,5 +9,5 @@ class AppColors {
 }
 
 class AppDurations {
-  static const short = Duration(milliseconds: 3000);
+  static const short = Duration(milliseconds: 300);
 }

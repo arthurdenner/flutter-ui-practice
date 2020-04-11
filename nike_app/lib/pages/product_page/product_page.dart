@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/pages/product_page/widgets/app_bar.dart';
+import 'package:nike_app/pages/product_page/widgets/images.dart';
 import 'package:nike_app/pages/product_page/widgets/sidebar.dart';
 import 'package:nike_app/utils/constants.dart';
 
@@ -22,27 +23,7 @@ class _ProductPageState extends State<ProductPage> {
             Expanded(
               child: Stack(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(16),
-                    height: MediaQuery.of(context).size.height * 0.55,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.55,
-                          child: Image.asset('assets/images/front-jacket.png'),
-                        ),
-                        Opacity(
-                          opacity: 0.5,
-                          child: Container(
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            child: Image.asset('assets/images/back-jacket.png'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  ProductImages(),
                 ],
               ),
             ),
