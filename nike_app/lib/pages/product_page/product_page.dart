@@ -23,8 +23,25 @@ class _ProductPageState extends State<ProductPage> {
               child: Stack(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(top: 50),
-                    child: Image.asset('assets/images/front-jacket.png'),
+                    padding: EdgeInsets.all(16),
+                    height: MediaQuery.of(context).size.height * 0.55,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.55,
+                          child: Image.asset('assets/images/front-jacket.png'),
+                        ),
+                        Opacity(
+                          opacity: 0.5,
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            child: Image.asset('assets/images/back-jacket.png'),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
