@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/utils/constants.dart';
 
 class NikeAppBar extends StatelessWidget {
   const NikeAppBar({Key key}) : super(key: key);
@@ -32,7 +33,7 @@ class NikeAppBar extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: AppColors.main,
               borderRadius: BorderRadius.circular(8),
             ),
             height: 75,

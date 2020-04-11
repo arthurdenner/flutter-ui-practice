@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/pages/product_page/widgets/app_bar.dart';
+import 'package:nike_app/pages/product_page/widgets/sidebar.dart';
+import 'package:nike_app/utils/constants.dart';
 
 class ProductPage extends StatefulWidget {
   ProductPage({Key key}) : super(key: key);
@@ -16,6 +18,18 @@ class _ProductPageState extends State<ProductPage> {
         body: Column(
           children: <Widget>[
             NikeAppBar(),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  ProductSidebar(),
+                  Expanded(
+                    child: Container(
+                      color: AppColors.main,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
