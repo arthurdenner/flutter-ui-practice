@@ -15,19 +15,16 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.main,
         body: Column(
           children: <Widget>[
             NikeAppBar(),
             Expanded(
-              child: Row(
+              child: Stack(
                 children: <Widget>[
-                  ProductSidebar(),
-                  Expanded(
-                    child: Container(
-                      color: AppColors.main,
-                      padding: EdgeInsets.only(top: 50),
-                      child: Image.asset('assets/images/front-jacket.png'),
-                    ),
+                  Container(
+                    padding: EdgeInsets.only(top: 50),
+                    child: Image.asset('assets/images/front-jacket.png'),
                   ),
                 ],
               ),
