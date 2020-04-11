@@ -25,6 +25,8 @@ class _ProductPageState extends State<ProductPage> {
                   Expanded(
                     child: Container(
                       color: AppColors.main,
+                      padding: EdgeInsets.only(top: 50),
+                      child: Image.asset('assets/images/front-jacket.png'),
                     ),
                   ),
                 ],
