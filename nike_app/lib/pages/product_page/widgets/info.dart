@@ -7,10 +7,7 @@ class ProductInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: EdgeInsets.only(
-          top: 20,
-          bottom: 30,
-        ),
+        padding: EdgeInsets.only(bottom: 60),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -21,17 +18,16 @@ class ProductInfo extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 50,
-              ),
+            Container(
+              width: 200,
               child: Text(
                 "Nike Windrunner Wild Run".toUpperCase(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: 30,
+                  height: 1.1,
                 ),
               ),
             ),
@@ -40,7 +36,7 @@ class ProductInfo extends StatelessWidget {
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 18,
+                fontSize: 24,
               ),
             ),
           ],

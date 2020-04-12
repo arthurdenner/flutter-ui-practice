@@ -6,7 +6,7 @@ class AddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 0,
+      bottom: 10,
       left: 0,
       right: 0,
       child: Container(
@@ -29,6 +29,7 @@ class AddToCartButton extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
             Text(
@@ -36,6 +37,7 @@ class AddToCartButton extends StatelessWidget {
               style: TextStyle(
                 color: Color(0xFFC7C7C7),
                 fontWeight: FontWeight.w500,
+                fontSize: 18,
               ),
             ),
           ],

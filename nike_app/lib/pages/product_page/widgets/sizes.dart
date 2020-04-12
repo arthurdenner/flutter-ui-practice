@@ -40,7 +40,7 @@ class _ProductSizesState extends State<ProductSizes> {
               label,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 14,
+                fontSize: 16,
               ),
             ),
           ),

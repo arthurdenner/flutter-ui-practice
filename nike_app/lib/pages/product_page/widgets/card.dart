@@ -9,7 +9,7 @@ class ProductCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 15,
+      bottom: 25,
       right: 0,
       left: 0,
       child: Container(
