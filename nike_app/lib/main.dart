@@ -7,9 +7,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Nike Store',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: 'BebasNeue',
       ),
       home: ProductPage(),
     );
