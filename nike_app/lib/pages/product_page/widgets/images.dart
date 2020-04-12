@@ -9,12 +9,10 @@ class ProductImages extends StatefulWidget {
 }
 
 class _ProductImagesState extends State<ProductImages> {
-  String selectedImage = 'front';
+  bool isFrontSelected = true;
 
   @override
   Widget build(BuildContext context) {
-    final isFrontImageSelected = selectedImage == 'front';
-
     return Container(
       padding: EdgeInsets.all(16),
       height: MediaQuery.of(context).size.height * 0.55,
@@ -22,19 +20,18 @@ class _ProductImagesState extends State<ProductImages> {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildImage(context, 'front'),
-          _buildImage(context, 'back'),
+          _buildImage(context, 'front', isFrontSelected),
+          _buildImage(context, 'back', !isFrontSelected),
         ],
       ),
     );
   }
 
-  Widget _buildImage(BuildContext context, String image) {
+  Widget _buildImage(BuildContext context, String image, bool isSelected) {
     final height = MediaQuery.of(context).size.height;
-    final isSelected = selectedImage == image;
 
     return GestureDetector(
-      onTap: () => setState(() => selectedImage = image),
+      onTap: () => setState(() => isFrontSelected = !isFrontSelected),
       child: AnimatedOpacity(
         curve: Curves.easeIn,
         duration: AppDurations.short,
