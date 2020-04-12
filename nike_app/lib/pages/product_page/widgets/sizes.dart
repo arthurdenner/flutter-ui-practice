@@ -32,7 +32,7 @@ class _ProductSizesState extends State<ProductSizes> {
         onTap: () => setState(() => selectedSize = label),
         child: AnimatedContainer(
           duration: AppDurations.short,
-          color: isSelected ? Colors.white : Colors.white.withOpacity(0),
+          color: isSelected ? AppColors.white : AppColors.white.withOpacity(0),
           margin: EdgeInsets.symmetric(horizontal: 6),
           padding: EdgeInsets.symmetric(vertical: 16),
           child: Center(

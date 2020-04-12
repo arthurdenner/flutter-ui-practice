@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/utils/constants.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({Key key}) : super(key: key);
@@ -14,7 +15,7 @@ class ProductInfo extends StatelessWidget {
             Text(
               "Men's Running Jacket".toUpperCase(),
               style: TextStyle(
-                color: Color(0xFF868686),
+                color: AppColors.darkGrey,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -24,7 +25,7 @@ class ProductInfo extends StatelessWidget {
                 "Nike Windrunner Wild Run".toUpperCase(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                   height: 1.1,
@@ -34,7 +35,7 @@ class ProductInfo extends StatelessWidget {
             Text(
               "\$120",
               style: TextStyle(
-                color: Colors.black,
+                color: AppColors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),

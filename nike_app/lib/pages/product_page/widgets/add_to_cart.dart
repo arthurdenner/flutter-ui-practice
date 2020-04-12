@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/utils/constants.dart';
 
 class AddToCartButton extends StatelessWidget {
   const AddToCartButton({Key key}) : super(key: key);
@@ -14,7 +15,7 @@ class AddToCartButton extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 30),
         padding: EdgeInsets.symmetric(horizontal: 30),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: AppColors.black,
           borderRadius: BorderRadius.circular(35),
         ),
         child: Row(
@@ -22,12 +23,12 @@ class AddToCartButton extends StatelessWidget {
           children: <Widget>[
             Icon(
               Icons.shopping_cart,
-              color: Colors.white,
+              color: AppColors.white,
             ),
             Text(
               'Add to Cart'.toUpperCase(),
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -35,7 +36,7 @@ class AddToCartButton extends StatelessWidget {
             Text(
               '\$120',
               style: TextStyle(
-                color: Color(0xFFC7C7C7),
+                color: AppColors.grey,
                 fontWeight: FontWeight.w500,
                 fontSize: 18,
               ),

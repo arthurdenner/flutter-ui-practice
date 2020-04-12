@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const main = Color(0xFFDCEFF8);
-  static const bg = Colors.black;
-  static const bg_contrast = Color(0xFF333333);
-  static const highlight_bg = Color(0xFF00ADFF);
-  static const highlight_text = Color(0xFFBCE9FF);
+  static const black = Colors.black;
+  static const white = Colors.white;
+  static const grey = Color(0xFFC7C7C7);
+  static const darkGrey = Color(0xFF868686);
 }
 
 class AppDurations {

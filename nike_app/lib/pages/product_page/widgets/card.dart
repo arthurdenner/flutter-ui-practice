@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:nike_app/pages/product_page/widgets/info.dart';
 import 'package:nike_app/pages/product_page/widgets/sizes.dart';
+import 'package:nike_app/utils/constants.dart';
 
 class ProductCart extends StatelessWidget {
   const ProductCart({Key key}) : super(key: key);
@@ -29,9 +30,9 @@ class ProductCart extends StatelessWidget {
                   end: Alignment.topCenter,
                   stops: [0.5, 0.85, 0.9],
                   colors: [
-                    Colors.white,
-                    Colors.white.withOpacity(.9),
-                    Colors.white.withOpacity(.7)
+                    AppColors.white,
+                    AppColors.white.withOpacity(.9),
+                    AppColors.white.withOpacity(.7)
                   ],
                 ),
               ),
