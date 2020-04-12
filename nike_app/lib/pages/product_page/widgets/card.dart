@@ -37,6 +37,7 @@ class ProductCart extends StatelessWidget {
               ),
               child: ListView(
                 shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 children: <Widget>[
                   ProductSizes(),
                   ProductInfo(),

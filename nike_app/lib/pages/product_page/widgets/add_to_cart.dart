@@ -18,30 +18,33 @@ class AddToCartButton extends StatelessWidget {
           color: AppColors.black,
           borderRadius: BorderRadius.circular(35),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Icon(
-              Icons.shopping_cart,
-              color: AppColors.white,
-            ),
-            Text(
-              'Add to Cart'.toUpperCase(),
-              style: TextStyle(
+        child: FlatButton(
+          onPressed: () {},
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Icon(
+                Icons.shopping_cart,
                 color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
               ),
-            ),
-            Text(
-              '\$120',
-              style: TextStyle(
-                color: AppColors.grey,
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
+              Text(
+                'Add to Cart'.toUpperCase(),
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
-            ),
-          ],
+              Text(
+                '\$120',
+                style: TextStyle(
+                  color: AppColors.grey,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

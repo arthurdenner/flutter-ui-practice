@@ -15,7 +15,8 @@ class _ProductImagesState extends State<ProductImages> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
-      height: MediaQuery.of(context).size.height * 0.55,
+      height: _getHeight(),
+      width: 600,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,5 +45,19 @@ class _ProductImagesState extends State<ProductImages> {
         ),
       ),
     );
+  }
+
+  double _getHeight() {
+    final deviceHeight = MediaQuery.of(context).size.height;
+
+    if (deviceHeight > 800) {
+      return deviceHeight * 0.7;
+    }
+
+    if (deviceHeight > 700) {
+      return deviceHeight * 0.6;
+    }
+
+    return deviceHeight * 0.55;
   }
 }
