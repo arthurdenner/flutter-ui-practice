@@ -14,7 +14,6 @@ class ProductCart extends StatelessWidget {
       right: 0,
       left: 0,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.38,
         margin: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
@@ -36,7 +35,8 @@ class ProductCart extends StatelessWidget {
                   ],
                 ),
               ),
-              child: Column(
+              child: ListView(
+                shrinkWrap: true,
                 children: <Widget>[
                   ProductSizes(),
                   ProductInfo(),

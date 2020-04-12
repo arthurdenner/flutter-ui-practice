@@ -15,10 +15,10 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.main,
-        body: Column(
+    return Scaffold(
+      backgroundColor: AppColors.main,
+      body: SafeArea(
+        child: Column(
           children: <Widget>[
             NikeAppBar(),
             Expanded(
