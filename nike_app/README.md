@@ -1,10 +1,28 @@
 # nike_app
 
-A new Flutter project.
+Challenge from [Flutterando](https://github.com/Flutterando).
+
+## Mockup
+
+[Link on Dribble](https://dribbble.com/shots/11012468-Nike-Store).
+
+## Screenshots
+
+### Android
+
+- [Demo](./results/demo.gif)
+- [Product Page](./results/android.png)
+
+### iOS
+
+- [Product Page](./results/ios.png)
+
+## Helpful links
+
+https://alligator.io/flutter/flutter-gradient/
+https://medium.com/fluttervn/how-to-make-blur-effect-in-flutter-using-backdropfilter-imagefilter-559ffd8ab73
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
