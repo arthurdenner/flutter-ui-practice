@@ -7,11 +7,8 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _height = MediaQuery.of(context).size.height;
-
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: _height * .25,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Row(

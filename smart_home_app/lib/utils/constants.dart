@@ -22,3 +22,7 @@ class AppColors {
   static const grey = Color(0xFFe3e9f5);
   static const darkGrey = Color(0xFFa6aeda);
 }
+
+class AppDurations {
+  static const short = Duration(milliseconds: 300);
+}
