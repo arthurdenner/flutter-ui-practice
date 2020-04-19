@@ -19,4 +19,6 @@ class AppImages {
 class AppColors {
   static const blue = Color(0xFF3f4fa4);
   static const white = Colors.white;
+  static const grey = Color(0xFFe3e9f5);
+  static const darkGrey = Color(0xFFa6aeda);
 }
