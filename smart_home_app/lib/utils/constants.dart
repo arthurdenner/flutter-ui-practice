@@ -21,6 +21,7 @@ class AppColors {
   static const white = Colors.white;
   static const grey = Color(0xFFe3e9f5);
   static const darkGrey = Color(0xFFa6aeda);
+  static const red = Color(0xFFfd6592);
 }
 
 class AppDurations {

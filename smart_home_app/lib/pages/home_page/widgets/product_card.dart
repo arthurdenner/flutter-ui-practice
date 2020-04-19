@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key key}) : super(key: key);
+  const ProductCard({
+    Key key,
+    @required this.onChangeSwitch,
+    @required this.switchValue,
+  }) : super(key: key);
+
+  final ValueChanged<bool> onChangeSwitch;
+  final bool switchValue;
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +66,10 @@ class ProductCard extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     CupertinoSwitch(
-                      value: false,
-                      onChanged: null,
+                      value: switchValue,
+                      onChanged: onChangeSwitch,
+                      activeColor: AppColors.red,
+                      trackColor: AppColors.grey,
                     ),
                   ],
                 ),

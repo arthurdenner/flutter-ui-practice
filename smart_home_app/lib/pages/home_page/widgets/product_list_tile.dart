@@ -49,7 +49,9 @@ class ProductListTile extends StatelessWidget {
       ),
       trailing: CupertinoSwitch(
         value: false,
-        onChanged: null,
+        onChanged: (_) {},
+        activeColor: AppColors.red,
+        trackColor: AppColors.grey,
       ),
     );
   }

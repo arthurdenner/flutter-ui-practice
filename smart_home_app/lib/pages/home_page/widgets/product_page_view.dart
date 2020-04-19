@@ -11,6 +11,7 @@ class ProductPageView extends StatefulWidget {
 
 class _ProductPageViewState extends State<ProductPageView> {
   int _activeIndex = 0;
+  bool _isToggled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,18 @@ class _ProductPageViewState extends State<ProductPageView> {
             child: PageView(
               onPageChanged: _onPageChanged,
               children: <Widget>[
-                ProductCard(),
-                ProductCard(),
-                ProductCard(),
+                ProductCard(
+                  onChangeSwitch: _onChangeSwitch,
+                  switchValue: _isToggled,
+                ),
+                ProductCard(
+                  onChangeSwitch: _onChangeSwitch,
+                  switchValue: _isToggled,
+                ),
+                ProductCard(
+                  onChangeSwitch: _onChangeSwitch,
+                  switchValue: _isToggled,
+                ),
               ],
             ),
           ),
@@ -45,5 +55,9 @@ class _ProductPageViewState extends State<ProductPageView> {
 
   void _onPageChanged(int value) {
     setState(() => _activeIndex = value);
+  }
+
+  void _onChangeSwitch(bool value) {
+    setState(() => _isToggled = !_isToggled);
   }
 }
