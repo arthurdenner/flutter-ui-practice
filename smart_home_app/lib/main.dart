@@ -9,6 +9,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Smart Home',
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.transparent,
+        ),
+      ),
       home: HomePage(),
     );
   }

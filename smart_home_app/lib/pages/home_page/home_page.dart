@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/pages/home_page/widgets/app_header.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,11 +10,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.blue,
       body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: Center(
-            child: Text('Home Page'),
-          ),
+        child: Column(
+          children: <Widget>[
+            AppHeader(),
+          ],
         ),
       ),
     );
