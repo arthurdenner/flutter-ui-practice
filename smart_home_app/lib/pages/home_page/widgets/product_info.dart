@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
 class ProductInfo extends StatelessWidget {
-  const ProductInfo({Key key}) : super(key: key);
+  const ProductInfo({
+    Key key,
+    @required this.isToggled,
+  }) : super(key: key);
+
+  final bool isToggled;
 
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
+    final _top = isToggled ? _height * .22 : _height * .1;
 
-    return Positioned(
-      top: _height * 0.1,
+    return AnimatedPositioned(
+      duration: AppDurations.medium,
+      top: _top,
       left: 0,
       right: 0,
       child: Padding(
