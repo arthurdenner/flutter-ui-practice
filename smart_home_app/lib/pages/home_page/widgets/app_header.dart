@@ -6,24 +6,29 @@ class AppHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 25,
-        vertical: 15,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Image.network(
-            AppImages.logo,
-            width: 25,
-          ),
-          Icon(
-            Icons.menu,
-            size: 40,
-            color: AppColors.white,
-          ),
-        ],
+    return Positioned(
+      top: 0,
+      left: 0,
+      right: 0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 25,
+          vertical: 15,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Image.network(
+              AppImages.logo,
+              width: 25,
+            ),
+            Icon(
+              Icons.menu,
+              size: 40,
+              color: AppColors.white,
+            ),
+          ],
+        ),
       ),
     );
   }

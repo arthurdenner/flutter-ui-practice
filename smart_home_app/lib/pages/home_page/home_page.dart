@@ -11,25 +11,44 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height;
+    final _bottom = MediaQuery.of(context).padding.bottom;
+
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.blue,
       body: SafeArea(
+        bottom: false,
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
-                color: AppColors.blue,
-                child: Column(
+                color: Colors.white,
+                height: _height * .5,
+                child: Stack(
                   children: <Widget>[
-                    AppHeader(),
-                    ProductInfo(),
+                    Positioned(
+                      child: Container(
+                        color: AppColors.blue,
+                        height: _height * .4,
+                      ),
+                    ),
                     ProductPageView(),
+                    ProductInfo(),
+                    AppHeader(),
                   ],
                 ),
               ),
-              SizedBox(height: 30),
-              ProductList(),
-              AddDevice(),
+              Container(
+                color: AppColors.white,
+                padding: EdgeInsets.only(bottom: _bottom),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 30),
+                    ProductList(),
+                    AddDevice(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

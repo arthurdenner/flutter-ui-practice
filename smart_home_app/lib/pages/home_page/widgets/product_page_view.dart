@@ -16,25 +16,30 @@ class _ProductPageViewState extends State<ProductPageView> {
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
 
-    return Column(
-      children: <Widget>[
-        Container(
-          height: _height * .25,
-          child: PageView(
-            onPageChanged: _onPageChanged,
-            children: <Widget>[
-              ProductCard(),
-              ProductCard(),
-              ProductCard(),
-            ],
+    return Positioned(
+      top: _height * .2,
+      left: 0,
+      right: 0,
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: _height * .25,
+            child: PageView(
+              onPageChanged: _onPageChanged,
+              children: <Widget>[
+                ProductCard(),
+                ProductCard(),
+                ProductCard(),
+              ],
+            ),
           ),
-        ),
-        SizedBox(height: 30),
-        ProductIndicator(
-          activeIndex: _activeIndex,
-          count: 3,
-        ),
-      ],
+          SizedBox(height: 30),
+          ProductIndicator(
+            activeIndex: _activeIndex,
+            count: 3,
+          ),
+        ],
+      ),
     );
   }
 

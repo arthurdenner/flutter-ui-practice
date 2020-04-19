@@ -23,7 +23,7 @@ class ProductIndicator extends StatelessWidget {
           duration: AppDurations.short,
           margin: EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: activeIndex == index ? AppColors.white : AppColors.darkGrey,
+            color: activeIndex == index ? AppColors.blue : AppColors.darkGrey,
             shape: BoxShape.circle,
           ),
           width: DOT_SIZE,

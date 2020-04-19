@@ -14,10 +14,7 @@ class ProductListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 20,
-      ),
+      contentPadding: EdgeInsets.all(10),
       title: Row(
         children: <Widget>[
           Text(
@@ -46,6 +43,7 @@ class ProductListTile extends StatelessWidget {
         child: Image.network(
           product.image,
           width: 50,
+          height: 80,
           fit: BoxFit.fitHeight,
         ),
       ),
