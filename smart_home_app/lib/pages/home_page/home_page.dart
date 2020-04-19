@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/pages/home_page/widgets/add_device.dart';
 import 'package:smart_home_app/pages/home_page/widgets/app_header.dart';
 import 'package:smart_home_app/pages/home_page/widgets/product_info.dart';
 import 'package:smart_home_app/pages/home_page/widgets/product_list.dart';
@@ -11,16 +12,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blue,
+      backgroundColor: AppColors.white,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            AppHeader(),
-            ProductInfo(),
-            ProductPageView(),
-            SizedBox(height: 30),
-            ProductList(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                color: AppColors.blue,
+                child: Column(
+                  children: <Widget>[
+                    AppHeader(),
+                    ProductInfo(),
+                    ProductPageView(),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30),
+              ProductList(),
+              AddDevice(),
+            ],
+          ),
         ),
       ),
     );
