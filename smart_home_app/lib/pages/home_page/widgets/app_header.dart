@@ -6,8 +6,10 @@ class AppHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _statusBarHeight = MediaQuery.of(context).padding.top;
+
     return Positioned(
-      top: 0,
+      top: _statusBarHeight,
       left: 0,
       right: 0,
       child: Padding(
