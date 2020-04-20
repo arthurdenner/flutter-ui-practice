@@ -53,9 +53,6 @@ class _HomePageState extends State<HomePage> {
                     onChangeSwitch: _onChangeSwitch,
                     onPageChanged: _onPageChanged,
                   ),
-                  ProductInfo(
-                    isToggled: _isToggled,
-                  ),
                   AppHeader(),
                 ],
               ),

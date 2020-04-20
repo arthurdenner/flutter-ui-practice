@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home_app/pages/home_page/widgets/product_card.dart';
 import 'package:smart_home_app/pages/home_page/widgets/product_indicator.dart';
+import 'package:smart_home_app/pages/home_page/widgets/product_info.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
 class ProductPageView extends StatelessWidget {
@@ -20,7 +21,7 @@ class ProductPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
-    final _top = isToggled ? _height * .4 : _height * .25;
+    final _top = isToggled ? _height * .3 : _height * .15;
 
     return AnimatedPositioned(
       curve: Curves.easeIn,
@@ -30,6 +31,10 @@ class ProductPageView extends StatelessWidget {
       right: 0,
       child: Column(
         children: <Widget>[
+          ProductInfo(
+            isToggled: isToggled,
+          ),
+          SizedBox(height: 20),
           Container(
             height: _height * .25,
             child: PageView(
