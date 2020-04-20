@@ -64,7 +64,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
           AnimatedPositioned(
             duration: AppDurations.short,
             top: _cloud1Top,
-            left: 150,
+            left: _screenWidth * .35,
             child: Image.network(
               AppImages.nuvem,
               width: 30,
@@ -73,7 +73,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
           AnimatedPositioned(
             duration: AppDurations.short,
             top: _cloud2Top,
-            left: 220,
+            left: _screenWidth * .5,
             child: Image.network(
               AppImages.nuvem,
               width: 50,

@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               AnimatedContainer(
-                duration: AppDurations.medium,
+                duration: AppDurations.short,
                 color: Colors.white,
                 height: _isToggled ? _height * .65 : _height * .5,
                 child: Stack(
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                       child: AnimatedContainer(
                         color: AppColors.blue,
-                        duration: AppDurations.medium,
+                        duration: AppDurations.short,
                         height: _isToggled ? _height * .45 : _height * .4,
                       ),
                     ),

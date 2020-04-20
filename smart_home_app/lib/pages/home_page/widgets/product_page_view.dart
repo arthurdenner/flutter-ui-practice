@@ -26,7 +26,7 @@ class _ProductPageViewState extends State<ProductPageView> {
     final _top = widget.isToggled ? _height * .32 : _height * .2;
 
     return AnimatedPositioned(
-      duration: AppDurations.medium,
+      duration: AppDurations.short,
       top: _top,
       left: 0,
       right: 0,
