@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
-class CharacterAnimation extends StatefulWidget {
+class CharacterAnimation extends StatelessWidget {
   const CharacterAnimation({
     Key key,
     @required this.isToggled,
@@ -11,13 +11,7 @@ class CharacterAnimation extends StatefulWidget {
   final bool isToggled;
 
   @override
-  _CharacterAnimationState createState() => _CharacterAnimationState();
-}
-
-class _CharacterAnimationState extends State<CharacterAnimation> {
-  @override
   Widget build(BuildContext context) {
-    final isToggled = widget.isToggled;
     final _height = MediaQuery.of(context).size.height;
     final _screenWidth = MediaQuery.of(context).size.width;
     final _statusBarHeight = MediaQuery.of(context).padding.top;
@@ -25,26 +19,26 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
     final _cloud1Top = isToggled ? _height * -.1 : _height * .03;
     final _cloud2Top = isToggled ? _height * -.1 : _height * .05;
 
-    final _bubbleLeft = isToggled ? _screenWidth / 2 : 0.0;
+    final _bubbleLeft = isToggled ? _screenWidth / 2.2 : 0.0;
     final _bubbleRight = isToggled ? _screenWidth * -1 : 0.0;
-    final _bubbleRadius = isToggled ? _screenWidth * 1.5 : _screenWidth / 2;
+    final _bubbleRadius = isToggled ? _screenWidth * 2 : _screenWidth / 2;
     final _bubbleTop = isToggled ? -(_bubbleRadius / 4) : -(_bubbleRadius / 2);
 
     final _dollTop = isToggled ? _height * .05 : _height / 4;
-    final _dollHeight = isToggled ? _height * .23 : 50.0;
+    final _dollHeight = isToggled ? _height * .3 : 50.0;
 
     final _lightning1Top = isToggled ? _height * .04 : _height / 4;
     final _lightning1Left = isToggled ? _screenWidth * .25 : _screenWidth * .5;
-    final _lightning2Top = isToggled ? _height * .1 : _height / 4;
+    final _lightning2Top = isToggled ? _height * .15 : _height / 4;
     final _lightning2Left = isToggled ? _screenWidth * .1 : _screenWidth * .5;
     final _lightning3Top = isToggled ? _height * .03 : _height / 4;
     final _lightning3Left = isToggled ? _screenWidth * .65 : _screenWidth * .5;
-    final _lightning4Top = isToggled ? _height * .11 : _height / 4;
+    final _lightning4Top = isToggled ? _height * .17 : _height / 4;
     final _lightning4Left = isToggled ? _screenWidth * .8 : _screenWidth * .5;
 
     return AnimatedContainer(
       duration: AppDurations.short,
-      height: isToggled ? _height * .45 : _height * .4,
+      height: isToggled ? _height * .55 : _height * .4,
       child: Stack(
         children: <Widget>[
           AnimatedPositioned(
@@ -124,7 +118,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
               transform: Matrix4.rotationY(pi),
               child: Image.network(
                 AppImages.raio,
-                width: 35,
+                width: 30,
               ),
             ),
           ),

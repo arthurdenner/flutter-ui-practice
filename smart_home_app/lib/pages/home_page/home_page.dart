@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _activeIndex = 0;
   bool _isToggled = false;
 
   @override
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               duration: AppDurations.short,
               curve: Curves.easeIn,
               color: Colors.white,
-              height: _isToggled ? _height * .65 : _height * .55,
+              height: _isToggled ? _height * .7 : _height * .55,
               child: Stack(
                 children: <Widget>[
                   Positioned(
@@ -39,15 +40,17 @@ class _HomePageState extends State<HomePage> {
                       color: AppColors.blue,
                       curve: Curves.easeIn,
                       duration: AppDurations.short,
-                      height: _isToggled ? _height * .45 : _height * .45,
+                      height: _isToggled ? _height * .55 : _height * .45,
                     ),
                   ),
                   CharacterAnimation(
                     isToggled: _isToggled,
                   ),
                   ProductPageView(
+                    activeIndex: _activeIndex,
                     isToggled: _isToggled,
                     onChangeSwitch: _onChangeSwitch,
+                    onPageChanged: _onPageChanged,
                   ),
                   ProductInfo(
                     isToggled: _isToggled,
@@ -71,6 +74,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void _onPageChanged(int value) {
+    setState(() => _activeIndex = value);
   }
 
   void _onChangeSwitch(bool value) {

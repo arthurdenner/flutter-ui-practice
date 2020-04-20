@@ -3,30 +3,27 @@ import 'package:smart_home_app/pages/home_page/widgets/product_card.dart';
 import 'package:smart_home_app/pages/home_page/widgets/product_indicator.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
-class ProductPageView extends StatefulWidget {
+class ProductPageView extends StatelessWidget {
   ProductPageView({
     Key key,
+    @required this.activeIndex,
     @required this.isToggled,
     @required this.onChangeSwitch,
+    @required this.onPageChanged,
   }) : super(key: key);
 
+  final int activeIndex;
   final bool isToggled;
   final ValueChanged<bool> onChangeSwitch;
-
-  @override
-  _ProductPageViewState createState() => _ProductPageViewState();
-}
-
-class _ProductPageViewState extends State<ProductPageView> {
-  int _activeIndex = 0;
+  final ValueChanged<int> onPageChanged;
 
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
-    final _top = widget.isToggled ? _height * .32 : _height * .25;
+    final _top = isToggled ? _height * .4 : _height * .25;
 
     return AnimatedPositioned(
-      curve: Curves.easeInOut,
+      curve: Curves.easeIn,
       duration: AppDurations.short,
       top: _top,
       left: 0,
@@ -36,35 +33,30 @@ class _ProductPageViewState extends State<ProductPageView> {
           Container(
             height: _height * .25,
             child: PageView(
-              onPageChanged: _onPageChanged,
+              onPageChanged: onPageChanged,
               children: <Widget>[
                 ProductCard(
-                  onChangeSwitch: widget.onChangeSwitch,
-                  switchValue: widget.isToggled,
+                  onChangeSwitch: onChangeSwitch,
+                  switchValue: isToggled,
                 ),
                 ProductCard(
-                  onChangeSwitch: widget.onChangeSwitch,
-                  switchValue: widget.isToggled,
+                  onChangeSwitch: onChangeSwitch,
+                  switchValue: isToggled,
                 ),
                 ProductCard(
-                  onChangeSwitch: widget.onChangeSwitch,
-                  switchValue: widget.isToggled,
+                  onChangeSwitch: onChangeSwitch,
+                  switchValue: isToggled,
                 ),
               ],
             ),
           ),
           SizedBox(height: 30),
           ProductIndicator(
-            activeIndex: _activeIndex,
+            activeIndex: activeIndex,
             count: 3,
           ),
-          SizedBox(height: 30),
         ],
       ),
     );
-  }
-
-  void _onPageChanged(int value) {
-    setState(() => _activeIndex = value);
   }
 }
