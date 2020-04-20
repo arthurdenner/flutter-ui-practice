@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_app/utils/constants.dart';
 
 class CharacterAnimation extends StatefulWidget {
-  CharacterAnimation({
+  const CharacterAnimation({
     Key key,
     @required this.isToggled,
   }) : super(key: key);
@@ -16,44 +16,54 @@ class CharacterAnimation extends StatefulWidget {
 class _CharacterAnimationState extends State<CharacterAnimation> {
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _size = _width / 1.5;
-    final _cloud1Top = widget.isToggled ? 0.0 : _size / 1.6;
-    final _cloud2Top = widget.isToggled ? 0.0 : _size / 1.3;
+    final isToggled = widget.isToggled;
+    final _height = MediaQuery.of(context).size.height;
+    final _screenWidth = MediaQuery.of(context).size.width;
+    final _cloud1Top = isToggled ? _height * -.1 : _height * .03;
+    final _cloud2Top = isToggled ? _height * -.1 : _height * .05;
+    final _bubbleLeft = isToggled ? _screenWidth / 2 : 0.0;
+    final _bubbleRight = isToggled ? _screenWidth * -1 : 0.0;
+    final _bubbleRadius = isToggled ? _screenWidth * 2 : _screenWidth / 2;
+    final _bubbleTop = isToggled ? -(_bubbleRadius / 4) : -(_bubbleRadius / 2);
 
-    return Positioned(
-      top: _size / 2 * -1,
-      left: 0,
-      right: 0,
-      child: Container(
-        width: _size,
-        height: _size,
-        decoration: BoxDecoration(
-          color: AppColors.red,
-          shape: BoxShape.circle,
-        ),
-        child: Stack(
-          children: <Widget>[
-            AnimatedPositioned(
+    return Container(
+      height: isToggled ? _height * .45 : _height * .4,
+      child: Stack(
+        children: <Widget>[
+          AnimatedPositioned(
+            duration: AppDurations.short,
+            top: _bubbleTop,
+            left: _bubbleLeft,
+            right: _bubbleRight,
+            child: AnimatedContainer(
               duration: AppDurations.short,
-              top: _cloud1Top,
-              left: 150,
-              child: Image.network(
-                AppImages.nuvem,
-                width: 30,
+              width: _bubbleRadius,
+              height: _bubbleRadius,
+              decoration: BoxDecoration(
+                color: AppColors.red,
+                shape: BoxShape.circle,
               ),
             ),
-            AnimatedPositioned(
-              duration: AppDurations.short,
-              top: _cloud2Top,
-              left: 220,
-              child: Image.network(
-                AppImages.nuvem,
-                width: 50,
-              ),
+          ),
+          AnimatedPositioned(
+            duration: AppDurations.short,
+            top: _cloud1Top,
+            left: 150,
+            child: Image.network(
+              AppImages.nuvem,
+              width: 30,
             ),
-          ],
-        ),
+          ),
+          AnimatedPositioned(
+            duration: AppDurations.short,
+            top: _cloud2Top,
+            left: 220,
+            child: Image.network(
+              AppImages.nuvem,
+              width: 50,
+            ),
+          ),
+        ],
       ),
     );
   }
