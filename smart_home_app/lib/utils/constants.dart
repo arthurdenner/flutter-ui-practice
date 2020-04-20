@@ -26,5 +26,5 @@ class AppColors {
 
 class AppDurations {
   static const short = Duration(milliseconds: 300);
-  static const medium = Duration(milliseconds: 500);
+  static const medium = Duration(milliseconds: 400);
 }

@@ -23,7 +23,7 @@ class _ProductPageViewState extends State<ProductPageView> {
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
-    final _top = widget.isToggled ? _height * .32 : _height * .2;
+    final _top = widget.isToggled ? _height * .32 : _height * .25;
 
     return AnimatedPositioned(
       curve: Curves.easeInOut,

@@ -12,7 +12,7 @@ class ProductInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
-    final _top = isToggled ? _height * .22 : _height * .1;
+    final _top = isToggled ? _height * .23 : _height * .15;
 
     return AnimatedPositioned(
       curve: Curves.easeIn,

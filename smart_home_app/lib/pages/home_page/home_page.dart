@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               duration: AppDurations.short,
               curve: Curves.easeIn,
               color: Colors.white,
-              height: _isToggled ? _height * .65 : _height * .5,
+              height: _isToggled ? _height * .65 : _height * .55,
               child: Stack(
                 children: <Widget>[
                   Positioned(
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                       color: AppColors.blue,
                       curve: Curves.easeIn,
                       duration: AppDurations.short,
-                      height: _isToggled ? _height * .45 : _height * .4,
+                      height: _isToggled ? _height * .45 : _height * .45,
                     ),
                   ),
                   CharacterAnimation(
