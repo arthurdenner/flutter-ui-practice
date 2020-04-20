@@ -1,10 +1,25 @@
 # smart_home_app
 
-A new Flutter project.
+Challenge from [Flutterando](https://github.com/Flutterando).
+
+## Mockup
+
+[Link on Dribble](https://dribbble.com/shots/5137383--Mi-Smart-Home-Outside-view-1).
+
+## Screenshots
+
+### Android
+
+- [Demo](.github/demo.gif)
+- [Home Page - Not Toggled](.github/android_1.png)
+- [Home Page - Toggled](.github/android_2.png)
+
+### iOS
+
+- [Home Page - Not Toggled](.github/ios_1.png)
+- [Home Page - Toggled](.github/ios_2.png)
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
