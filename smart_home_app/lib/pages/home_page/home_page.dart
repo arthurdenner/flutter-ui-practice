@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.blue,
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             AnimatedContainer(

@@ -21,10 +21,10 @@ class CharacterAnimation extends StatelessWidget {
 
     final _bubbleLeft = isToggled ? _screenWidth / 2.2 : 0.0;
     final _bubbleRight = isToggled ? _screenWidth * -1 : 0.0;
-    final _bubbleRadius = isToggled ? _screenWidth * 2 : _screenWidth / 2;
+    final _bubbleRadius = isToggled ? _screenWidth * 1.8 : _screenWidth / 2;
     final _bubbleTop = isToggled ? -(_bubbleRadius / 4) : -(_bubbleRadius / 2);
 
-    final _dollTop = isToggled ? _height * .05 : _height / 4;
+    final _dollTop = isToggled ? _height * .07 : _height / 4;
     final _dollHeight = isToggled ? _height * .3 : 50.0;
 
     final _lightning1Top = isToggled ? _height * .04 : _height / 4;

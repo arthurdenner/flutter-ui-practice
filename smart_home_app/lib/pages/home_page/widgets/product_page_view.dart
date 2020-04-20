@@ -50,7 +50,7 @@ class ProductPageView extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           ProductIndicator(
             activeIndex: activeIndex,
             count: 3,

@@ -33,7 +33,7 @@ class ProductInfo extends StatelessWidget {
                   "Stan's",
                   style: TextStyle(
                     color: AppColors.white,
-                    fontSize: 24,
+                    fontSize: 20,
                   ),
                 ),
                 Text(
@@ -41,7 +41,7 @@ class ProductInfo extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.white,
                     fontWeight: FontWeight.w800,
-                    fontSize: 28,
+                    fontSize: 24,
                   ),
                 ),
               ],
@@ -53,7 +53,7 @@ class ProductInfo extends StatelessWidget {
                   "23° indoor\nDoor closed",
                   style: TextStyle(
                     color: AppColors.white,
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
               ],

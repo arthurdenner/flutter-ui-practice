@@ -40,31 +40,31 @@ class ProductCard extends StatelessWidget {
                       'Gateway',
                       style: TextStyle(
                         color: AppColors.blue,
-                        fontSize: 28,
+                        fontSize: 24,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     Text(
                       'Online',
                       style: TextStyle(
                         color: AppColors.darkGrey,
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                     Divider(
                       color: AppColors.grey,
                       thickness: 2,
-                      height: 30,
+                      height: 20,
                     ),
                     Text(
                       'Alarming',
                       style: TextStyle(
                         color: AppColors.darkGrey,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     CupertinoSwitch(
                       value: switchValue,
                       onChanged: onChangeSwitch,
