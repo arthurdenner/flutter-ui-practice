@@ -14,7 +14,6 @@ class ProductList extends StatelessWidget {
         horizontal: 15,
       ),
       decoration: BoxDecoration(
-        color: AppColors.white,
         border: Border(
           top: BorderSide(
             color: AppColors.grey,

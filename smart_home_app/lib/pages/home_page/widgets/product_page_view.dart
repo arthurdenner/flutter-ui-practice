@@ -26,6 +26,7 @@ class _ProductPageViewState extends State<ProductPageView> {
     final _top = widget.isToggled ? _height * .32 : _height * .2;
 
     return AnimatedPositioned(
+      curve: Curves.easeInOut,
       duration: AppDurations.short,
       top: _top,
       left: 0,
@@ -57,6 +58,7 @@ class _ProductPageViewState extends State<ProductPageView> {
             activeIndex: _activeIndex,
             count: 3,
           ),
+          SizedBox(height: 30),
         ],
       ),
     );

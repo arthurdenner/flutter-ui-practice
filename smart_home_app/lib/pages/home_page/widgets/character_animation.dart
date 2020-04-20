@@ -31,7 +31,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
     final _bubbleTop = isToggled ? -(_bubbleRadius / 4) : -(_bubbleRadius / 2);
 
     final _dollTop = isToggled ? _height * .05 : _height / 4;
-    final _dollHeight = isToggled ? _height * .27 : 0.0;
+    final _dollHeight = isToggled ? _height * .23 : 50.0;
 
     final _lightning1Top = isToggled ? _height * .04 : _height / 4;
     final _lightning1Left = isToggled ? _screenWidth * .25 : _screenWidth * .5;
@@ -42,16 +42,19 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
     final _lightning4Top = isToggled ? _height * .11 : _height / 4;
     final _lightning4Left = isToggled ? _screenWidth * .8 : _screenWidth * .5;
 
-    return Container(
+    return AnimatedContainer(
+      duration: AppDurations.short,
       height: isToggled ? _height * .45 : _height * .4,
       child: Stack(
         children: <Widget>[
           AnimatedPositioned(
+            curve: Curves.easeInOut,
             duration: AppDurations.short,
             top: _bubbleTop + _statusBarHeight,
             left: _bubbleLeft,
             right: _bubbleRight,
             child: AnimatedContainer(
+              curve: Curves.easeInOut,
               duration: AppDurations.short,
               width: _bubbleRadius,
               height: _bubbleRadius,
@@ -62,12 +65,14 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
-            duration: AppDurations.short,
+            curve: Curves.easeOut,
+            duration: AppDurations.medium,
             top: _dollTop + _statusBarHeight,
             left: 0,
             right: 0,
             child: AnimatedContainer(
-              duration: AppDurations.short,
+              curve: Curves.easeOut,
+              duration: AppDurations.medium,
               height: _dollHeight,
               child: Image.network(
                 AppImages.boneco,
@@ -76,7 +81,8 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
-            duration: AppDurations.short,
+            curve: Curves.easeOut,
+            duration: AppDurations.medium,
             top: _lightning1Top + _statusBarHeight,
             left: _lightning1Left,
             child: Image.network(
@@ -85,7 +91,8 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
-            duration: AppDurations.short,
+            curve: Curves.easeOut,
+            duration: AppDurations.medium,
             top: _lightning2Top + _statusBarHeight,
             left: _lightning2Left,
             child: Image.network(
@@ -94,7 +101,8 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
-            duration: AppDurations.short,
+            curve: Curves.easeOut,
+            duration: AppDurations.medium,
             top: _lightning3Top + _statusBarHeight,
             left: _lightning3Left,
             child: Transform(
@@ -107,7 +115,8 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
-            duration: AppDurations.short,
+            curve: Curves.easeOut,
+            duration: AppDurations.medium,
             top: _lightning4Top + _statusBarHeight,
             left: _lightning4Left,
             child: Transform(
@@ -120,6 +129,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
+            curve: Curves.easeOut,
             duration: AppDurations.short,
             top: _cloud1Top + _statusBarHeight,
             left: _screenWidth * .35,
@@ -129,6 +139,7 @@ class _CharacterAnimationState extends State<CharacterAnimation> {
             ),
           ),
           AnimatedPositioned(
+            curve: Curves.easeOut,
             duration: AppDurations.short,
             top: _cloud2Top + _statusBarHeight,
             left: _screenWidth * .5,
