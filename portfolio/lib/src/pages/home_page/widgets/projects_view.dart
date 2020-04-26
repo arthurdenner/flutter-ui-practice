@@ -45,6 +45,7 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
     final _width = MediaQuery.of(context).size.width;
 
     return GestureDetector(
+      onPanUpdate: (_) => _resetState(),
       onTap: _restoreState,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: _height * .03),
@@ -114,5 +115,10 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
     setState(() {
       _activeIndex = null;
     });
+  }
+
+  void _resetState() {
+    _restoreState();
+    widget.onPressed();
   }
 }

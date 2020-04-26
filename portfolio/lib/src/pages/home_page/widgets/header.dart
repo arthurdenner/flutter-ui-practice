@@ -16,7 +16,7 @@ class PortfolioHeader extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Text(
-              'Arthur Denner',
+              'John Decon',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
