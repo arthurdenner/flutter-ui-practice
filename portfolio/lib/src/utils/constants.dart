@@ -38,3 +38,9 @@ const projects = [
     numPhotos: 8,
   ),
 ];
+
+class AppDurations {
+  static const short = Duration(milliseconds: 500);
+  static const long = Duration(milliseconds: 2000);
+  static const veryLong = Duration(milliseconds: 3000);
+}

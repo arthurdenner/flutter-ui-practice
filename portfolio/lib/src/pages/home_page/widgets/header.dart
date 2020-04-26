@@ -5,23 +5,20 @@ class PortfolioHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 20,
-      ),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.grey[200],
-            width: 1,
-          ),
-        ),
-      ),
+      width: _width * .8,
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: <Widget>[
           Expanded(
-            child: Text('Arthur Denner'),
+            child: Text(
+              'Arthur Denner',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           Row(
             children: <Widget>[

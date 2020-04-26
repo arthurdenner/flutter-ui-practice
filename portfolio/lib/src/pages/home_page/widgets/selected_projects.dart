@@ -11,7 +11,7 @@ class SelectedProjects extends StatelessWidget {
         Text(
           'Selected Projects',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -29,7 +29,7 @@ class SelectedProjects extends StatelessWidget {
                 color: Colors.black,
                 shape: BoxShape.circle,
               ),
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(6),
               child: Icon(
                 Icons.brightness_2,
                 color: Color(0xFFf23a6a),
