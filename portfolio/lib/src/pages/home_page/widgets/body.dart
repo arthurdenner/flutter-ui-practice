@@ -23,16 +23,6 @@ class _PortfolioBodyState extends State<PortfolioBody> {
       child: Stack(
         children: <Widget>[
           AnimatedPositioned(
-            top: _heroTop,
-            left: 0,
-            right: 0,
-            duration: AppDurations.long,
-            curve: Curves.easeInOut,
-            child: PortfolioHero(
-              onPressed: _toggleProjects,
-            ),
-          ),
-          AnimatedPositioned(
             top: _projectsTop,
             left: 0,
             right: 0,
@@ -40,6 +30,16 @@ class _PortfolioBodyState extends State<PortfolioBody> {
             curve: Curves.easeInOut,
             child: PortfolioProjectsView(
               isVisible: _showProjects,
+              onPressed: _toggleProjects,
+            ),
+          ),
+          AnimatedPositioned(
+            top: _heroTop,
+            left: 0,
+            right: 0,
+            duration: AppDurations.long,
+            curve: Curves.easeInOut,
+            child: PortfolioHero(
               onPressed: _toggleProjects,
             ),
           ),

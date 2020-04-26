@@ -51,6 +51,12 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
         height: _height * .91,
         child: Stack(
           children: <Widget>[
+            ListView(
+              shrinkWrap: true,
+              controller: _scrollController,
+              scrollDirection: Axis.horizontal,
+              children: _createProjects(),
+            ),
             Positioned(
               top: 0,
               left: 0,
@@ -65,12 +71,6 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
                   ),
                 ),
               ),
-            ),
-            ListView(
-              shrinkWrap: true,
-              controller: _scrollController,
-              scrollDirection: Axis.horizontal,
-              children: _createProjects(),
             ),
           ],
         ),
@@ -114,7 +114,5 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
     setState(() {
       _activeIndex = null;
     });
-
-    widget.onPressed();
   }
 }
