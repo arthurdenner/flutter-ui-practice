@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/src/pages/home_page/widgets/selected_projects.dart';
 import 'package:portfolio/src/utils/constants.dart';
 
 class PortfolioProjectsView extends StatefulWidget {
@@ -35,49 +36,59 @@ class _PortfolioProjectsViewState extends State<PortfolioProjectsView> {
 
     return Container(
       height: _height * .9,
-      child: ListView(
-        controller: _scrollController,
-        scrollDirection: Axis.horizontal,
-        children: projects
-            .map(
-              (project) => Container(
-                width: _projectsWidth / 4,
-                margin: EdgeInsets.symmetric(horizontal: _gap),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        project.image,
-                        height: _height * .5,
-                        width: _projectsWidth / 4,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      project.title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text.rich(
-                      TextSpan(
-                        text: project.location,
-                        children: [
-                          TextSpan(text: ' - '),
-                          TextSpan(text: '${project.numPhotos} photos'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SelectedProjects(),
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              controller: _scrollController,
+              scrollDirection: Axis.horizontal,
+              children: projects
+                  .map(
+                    (project) => Container(
+                      width: _projectsWidth / 4,
+                      margin: EdgeInsets.symmetric(horizontal: _gap),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              project.image,
+                              height: _height * .5,
+                              width: _projectsWidth / 4,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            project.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text.rich(
+                            TextSpan(
+                              text: project.location,
+                              children: [
+                                TextSpan(text: ' - '),
+                                TextSpan(text: '${project.numPhotos} photos'),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-            )
-            .toList(),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
