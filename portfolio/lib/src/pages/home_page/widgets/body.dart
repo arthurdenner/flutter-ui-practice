@@ -17,7 +17,7 @@ class _PortfolioBodyState extends State<PortfolioBody> {
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
     final _heroTop = _showProjects ? -(_height * .8) : 0.0;
-    final _projectsTop = _showProjects ? 0.0 : _height * .55;
+    final _projectsTop = _showProjects ? 0.0 : _height * .52;
 
     return Expanded(
       child: Stack(

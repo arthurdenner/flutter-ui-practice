@@ -46,7 +46,6 @@ class SelectedProjects extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 30),
       ],
     );
   }

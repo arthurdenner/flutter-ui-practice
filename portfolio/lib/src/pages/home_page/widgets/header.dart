@@ -5,10 +5,12 @@ class PortfolioHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height;
     final _width = MediaQuery.of(context).size.width;
 
     return Container(
       width: _width * .8,
+      height: _height * .08,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: <Widget>[
