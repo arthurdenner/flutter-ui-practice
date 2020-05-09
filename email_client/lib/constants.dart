@@ -7,9 +7,10 @@ class AppColors {
   static const blue = Color(0xFF0a275a);
   static const darkBlue = Color(0xFF061839);
   static const lightBlue = Color(0xFF7491c7);
-  static const white = Color(0xFFFFFFFF);
+  static const white = Colors.white;
   static const red = Color(0xFFe66477);
   static const purple = Color(0xFF8264e6);
+  static const black = Colors.black;
 }
 
 class AppTextStyles {
