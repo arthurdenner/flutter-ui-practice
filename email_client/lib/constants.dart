@@ -8,6 +8,24 @@ class AppColors {
   static const darkBlue = Color(0xFF061839);
   static const lightBlue = Color(0xFF7491c7);
   static const white = Color(0xFFFFFFFF);
+  static const red = Color(0xFFe66477);
+  static const purple = Color(0xFF8264e6);
+}
+
+class AppTextStyles {
+  static const userName = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
+  );
+  static const subject = TextStyle(
+    color: AppColors.lightBlue,
+    fontSize: 16,
+  );
+  static const timestamp = TextStyle(
+    color: AppColors.lightBlue,
+    fontSize: 15,
+  );
 }
 
 final messages = <Message>[
@@ -17,6 +35,7 @@ final messages = <Message>[
     subject: 'Re: Design feedback',
     message: faker.lorem.sentence(),
     timestamp: 'Just now',
+    color: AppColors.red,
   ),
   Message(
     userName: 'Mark Amarillo',
@@ -24,6 +43,7 @@ final messages = <Message>[
     subject: 'Final steps',
     message: faker.lorem.sentence(),
     timestamp: '19 min ago',
+    color: AppColors.purple,
   ),
   Message(
     userName: 'Valentine Red',

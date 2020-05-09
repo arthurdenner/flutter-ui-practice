@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class Message {
   const Message({
@@ -7,6 +8,7 @@ class Message {
     @required this.subject,
     @required this.message,
     @required this.timestamp,
+    this.color,
   });
 
   final String userName;
@@ -14,4 +16,5 @@ class Message {
   final String subject;
   final String message;
   final String timestamp;
+  final Color color;
 }
