@@ -1,8 +1,9 @@
-import 'package:email_client/pages/home_page/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 import '../../constants.dart';
+import 'widgets/app_bar.dart';
+import 'widgets/bottom_bar.dart';
 import 'widgets/message_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
           MessageList(),
         ],
       ),
+      bottomNavigationBar: BottomBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: AppColors.white,

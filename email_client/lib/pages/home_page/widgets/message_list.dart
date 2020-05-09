@@ -10,6 +10,7 @@ class MessageList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        padding: EdgeInsets.zero,
         itemCount: messages.length,
         itemBuilder: (BuildContext context, int index) {
           return MessageListTile(
