@@ -8,13 +8,15 @@ class MessageList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: messages.length,
-      itemBuilder: (BuildContext context, int index) {
-        return MessageListTile(
-          message: messages[index],
-        );
-      },
+    return Expanded(
+      child: ListView.builder(
+        itemCount: messages.length,
+        itemBuilder: (BuildContext context, int index) {
+          return MessageListTile(
+            message: messages[index],
+          );
+        },
+      ),
     );
   }
 }

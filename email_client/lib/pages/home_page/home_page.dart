@@ -1,3 +1,4 @@
+import 'package:email_client/pages/home_page/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -10,7 +11,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MessageList(),
+      body: Column(
+        children: <Widget>[
+          InboxAppBar(),
+          MessageList(),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: AppColors.white,

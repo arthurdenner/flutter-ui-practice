@@ -11,6 +11,8 @@ class AppColors {
   static const red = Color(0xFFe66477);
   static const purple = Color(0xFF8264e6);
   static const black = Colors.black;
+  static const yellow = Color(0xFFe6e664);
+  static const teal = Color(0xFF64e6dc);
 }
 
 class AppTextStyles {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../models/message.dart';
+import '../../../widgets/dot.dart';
 
 class MessageListTile extends StatelessWidget {
   const MessageListTile({
@@ -20,14 +21,7 @@ class MessageListTile extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: message.color,
-                  shape: BoxShape.circle,
-                ),
-              ),
+              Dot(color: message.color),
               SizedBox(width: 15),
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
