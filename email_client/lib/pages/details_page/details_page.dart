@@ -1,9 +1,10 @@
-import 'package:email_client/pages/details_page/widgets/input.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../../models/message.dart';
 import '../../pages/home_page/widgets/message_details.dart';
+import 'widgets/attachments.dart';
+import 'widgets/input.dart';
 import 'widgets/options.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -48,9 +49,25 @@ class DetailsPage extends StatelessWidget {
                       subtitle: 'To You',
                       noDot: true,
                     ),
+                    SizedBox(height: 60),
                     Expanded(
-                      child: Container(color: AppColors.teal),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              message.message,
+                              style: TextStyle(
+                                color: AppColors.mediumBlue,
+                              ),
+                            ),
+                          ),
+                          Attachments(
+                            attachments: message.attachments,
+                          ),
+                        ],
+                      ),
                     ),
+                    SizedBox(height: 20),
                     DetailsInput(),
                   ],
                 ),

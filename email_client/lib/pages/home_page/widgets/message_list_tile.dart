@@ -30,7 +30,8 @@ class MessageListTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 95),
               child: Text(
-                message.message,
+                message.message.replaceAll(RegExp('\n\n'), ' '),
+                maxLines: 1,
                 style: AppTextStyles.timestamp,
                 overflow: TextOverflow.ellipsis,
               ),

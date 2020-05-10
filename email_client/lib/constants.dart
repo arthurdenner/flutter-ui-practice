@@ -7,6 +7,7 @@ class AppColors {
   static const blue = Color(0xFF0a275a);
   static const darkBlue = Color(0xFF061839);
   static const lightBlue = Color(0xFF7491c7);
+  static const mediumBlue = Color(0xFF92a5c9);
   static const white = Colors.white;
   static const red = Color(0xFFe66477);
   static const purple = Color(0xFF8264e6);
@@ -36,15 +37,16 @@ final messages = <Message>[
     userName: 'Kendra Blau',
     userPhoto: '',
     subject: 'Re: Design feedback',
-    message: faker.lorem.sentence(),
+    message: faker.lorem.sentences(5).join('\n\n'),
     timestamp: 'Just now',
     color: AppColors.red,
+    attachments: ['feedback.pdf', 'design.pdf'],
   ),
   Message(
     userName: 'Mark Amarillo',
     userPhoto: '',
     subject: 'Final steps',
-    message: faker.lorem.sentence(),
+    message: faker.lorem.sentences(5).join('\n\n'),
     timestamp: '19 min ago',
     color: AppColors.purple,
   ),
@@ -52,21 +54,23 @@ final messages = <Message>[
     userName: 'Valentine Red',
     userPhoto: '',
     subject: 'Re: Business opportunity',
-    message: faker.lorem.sentence(),
+    message: faker.lorem.sentences(5).join('\n\n'),
     timestamp: '2:11 pm',
+    attachments: ['sow_2020.pdf'],
   ),
   Message(
     userName: 'Poinsettia Roja',
     userPhoto: '',
     subject: 'Contact approval',
-    message: faker.lorem.sentence(),
+    message: faker.lorem.sentences(5).join('\n\n'),
     timestamp: 'Just now',
+    attachments: ['contract_signed.pdf'],
   ),
   Message(
     userName: 'Scarlett Jotz',
     userPhoto: '',
     subject: 'Re: Business opportunity',
-    message: faker.lorem.sentence(),
+    message: faker.lorem.sentences(5).join('\n\n'),
     timestamp: 'Just now',
   ),
 ];

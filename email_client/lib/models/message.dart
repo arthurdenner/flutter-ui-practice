@@ -8,6 +8,7 @@ class Message {
     @required this.subject,
     @required this.message,
     @required this.timestamp,
+    this.attachments = const [],
     this.color,
   });
 
@@ -17,6 +18,7 @@ class Message {
   final String message;
   final String timestamp;
   final Color color;
+  final List<String> attachments;
 
   @override
   String toString() {
