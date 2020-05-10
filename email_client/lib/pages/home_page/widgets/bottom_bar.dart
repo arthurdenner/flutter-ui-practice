@@ -12,23 +12,25 @@ class BottomBar extends StatelessWidget {
 
     return Container(
       height: _height,
-      padding: EdgeInsets.fromLTRB(40, 0, 40, _height / 4),
+      padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
       decoration: BoxDecoration(
         color: AppColors.blue,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(80),
         ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _buildIcon(icon: FontAwesome.star),
-          _buildIcon(
-            icon: FontAwesome.users,
-            selected: true,
-          ),
-          _buildIcon(icon: FontAwesome.inbox),
-        ],
+      child: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            _buildIcon(icon: FontAwesome.star),
+            _buildIcon(
+              icon: FontAwesome.users,
+              selected: true,
+            ),
+            _buildIcon(icon: FontAwesome.inbox),
+          ],
+        ),
       ),
     );
   }

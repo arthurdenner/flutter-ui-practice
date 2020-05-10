@@ -1,3 +1,4 @@
+import 'package:email_client/pages/details_page/widgets/input.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -26,29 +27,37 @@ class DetailsPage extends StatelessWidget {
           topLeft: Radius.circular(40),
         ),
       ),
-      child: Column(
-        children: <Widget>[
-          DetailsOptions(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  message.subject,
-                  style: Theme.of(context).textTheme.headline5,
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            DetailsOptions(),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      message.subject,
+                      style: Theme.of(context).textTheme.headline5,
+                    ),
+                    SizedBox(height: 30),
+                    MessageDetails(
+                      imageSize: 65,
+                      message: message,
+                      subtitle: 'To You',
+                      noDot: true,
+                    ),
+                    Expanded(
+                      child: Container(color: AppColors.teal),
+                    ),
+                    DetailsInput(),
+                  ],
                 ),
-                SizedBox(height: 30),
-                MessageDetails(
-                  imageSize: 65,
-                  message: message,
-                  subtitle: 'To You',
-                  noDot: true,
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
