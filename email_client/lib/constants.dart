@@ -55,7 +55,7 @@ final messages = <Message>[
     userName: 'Valentine Red',
     userPhoto: '',
     subject: 'Re: Business opportunity',
-    message: faker.lorem.sentences(5).join('\n\n'),
+    message: faker.lorem.sentences(7).join('\n\n'),
     timestamp: '2:11 pm',
     attachments: ['sow_2020.pdf'],
   ),

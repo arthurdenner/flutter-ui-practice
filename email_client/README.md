@@ -1,10 +1,25 @@
 # email_client
 
-A new Flutter project.
+Challenge from [Flutterando](https://github.com/Flutterando).
+
+## Mockup
+
+[Link on Dribble](https://dribbble.com/shots/11012468-Nike-Store).
+
+## Screenshots
+
+### Android
+
+- [Demo](.github/demo.gif)
+- [Home Page - Inbox](.github/android_1.png)
+- [Home Page - Details](.github/android_2.png)
+
+### iOS
+
+- [Home Page - Inbox](.github/ios_1.png)
+- [Home Page - Details](.github/ios_2.png)
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
