@@ -19,6 +19,12 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
           scaffoldBackgroundColor: AppColors.darkBlue,
+          textTheme: TextTheme(
+            headline5: TextStyle(
+              color: AppColors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         title: 'Email Client',
         home: HomePage(),

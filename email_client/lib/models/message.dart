@@ -17,4 +17,9 @@ class Message {
   final String message;
   final String timestamp;
   final Color color;
+
+  @override
+  String toString() {
+    return '{userName: $userName, subject: $subject}';
+  }
 }

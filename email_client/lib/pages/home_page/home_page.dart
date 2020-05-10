@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 import '../../constants.dart';
+import '../../models/message.dart';
+import '../details_page/details_page.dart';
 import 'widgets/app_bar.dart';
 import 'widgets/bottom_bar.dart';
 import 'widgets/message_list.dart';
@@ -15,7 +17,10 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           InboxAppBar(),
-          MessageList(),
+          MessageList(
+            onSelectMessage: (message) =>
+                _handleSelectMessage(context, message),
+          ),
         ],
       ),
       bottomNavigationBar: BottomBar(),
@@ -26,6 +31,18 @@ class HomePage extends StatelessWidget {
           Feather.edit,
           color: AppColors.black,
         ),
+      ),
+    );
+  }
+
+  void _handleSelectMessage(BuildContext context, Message message) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      barrierColor: AppColors.darkBlue,
+      isScrollControlled: true,
+      builder: (_) => DetailsPage(
+        message: message,
       ),
     );
   }
