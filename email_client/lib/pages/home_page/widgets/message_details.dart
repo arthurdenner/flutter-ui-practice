@@ -27,7 +27,7 @@ class MessageDetails extends StatelessWidget {
           SizedBox(width: 15),
         ],
         ClipRRect(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
           child: Container(
             width: imageSize,
             height: imageSize,
@@ -58,7 +58,7 @@ class MessageDetails extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: 4),
                 child: Text(
                   message.timestamp,
                   style: AppTextStyles.timestamp,

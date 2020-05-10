@@ -23,7 +23,8 @@ class AppTextStyles {
     fontSize: 20,
   );
   static const subject = TextStyle(
-    color: AppColors.lightBlue,
+    color: AppColors.mediumBlue,
+    fontWeight: FontWeight.w600,
     fontSize: 16,
   );
   static const timestamp = TextStyle(

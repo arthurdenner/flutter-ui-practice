@@ -18,6 +18,7 @@ class MessageListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      behavior: HitTestBehavior.opaque,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         child: Column(
@@ -26,7 +27,7 @@ class MessageListTile extends StatelessWidget {
             MessageDetails(
               message: message,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.only(left: 95),
               child: Text(

@@ -12,11 +12,11 @@ class BottomBar extends StatelessWidget {
 
     return Container(
       height: _height,
-      padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+      padding: EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
         color: AppColors.blue,
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(80),
+          topRight: Radius.circular(60),
         ),
       ),
       child: SafeArea(

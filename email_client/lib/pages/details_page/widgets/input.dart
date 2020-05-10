@@ -33,7 +33,8 @@ class DetailsInput extends StatelessWidget {
             child: Text(
               'Type your message',
               style: TextStyle(
-                color: AppColors.mediumBlue,
+                color: AppColors.lightBlue,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

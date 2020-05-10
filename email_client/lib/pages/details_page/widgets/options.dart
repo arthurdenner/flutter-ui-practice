@@ -20,7 +20,7 @@ class DetailsOptions extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 40, 40),
+          padding: const EdgeInsets.fromLTRB(20, 20, 40, 0),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -32,7 +32,7 @@ class DetailsOptions extends StatelessWidget {
                     icon: Icon(
                       Feather.chevron_left,
                       color: AppColors.lightBlue,
-                      size: 40,
+                      size: 35,
                     ),
                   ),
                 ),
@@ -42,13 +42,13 @@ class DetailsOptions extends StatelessWidget {
                 child: Icon(
                   FontAwesome.archive,
                   color: AppColors.lightBlue,
-                  size: 28,
+                  size: 25,
                 ),
               ),
               Icon(
                 Icons.delete,
                 color: AppColors.lightBlue,
-                size: 35,
+                size: 30,
               ),
             ],
           ),

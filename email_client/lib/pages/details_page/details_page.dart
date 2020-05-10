@@ -35,41 +35,44 @@ class DetailsPage extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      message.subject,
-                      style: Theme.of(context).textTheme.headline5,
-                    ),
-                    SizedBox(height: 30),
-                    MessageDetails(
-                      imageSize: 65,
-                      message: message,
-                      subtitle: 'To You',
-                      noDot: true,
-                    ),
-                    SizedBox(height: 60),
-                    Expanded(
-                      child: Column(
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 20),
+                      Text(
+                        message.subject,
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                      SizedBox(height: 30),
+                      MessageDetails(
+                        imageSize: 65,
+                        message: message,
+                        subtitle: 'To You',
+                        noDot: true,
+                      ),
+                      SizedBox(height: 50),
+                      Column(
                         children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              message.message,
-                              style: TextStyle(
-                                color: AppColors.mediumBlue,
-                              ),
+                          Text(
+                            message.message,
+                            style: TextStyle(
+                              color: AppColors.mediumBlue,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
+                          SizedBox(height: 20),
                           Attachments(
                             attachments: message.attachments,
                           ),
                         ],
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    DetailsInput(),
-                  ],
+                      SizedBox(height: 20),
+                      DetailsInput(),
+                      SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
             ),
